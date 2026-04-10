@@ -1,5 +1,11 @@
 # 03 — Hardware e Arquitetura de Computadores
 
+← [Módulo 02](02-logica-algoritmos-fluxo.md) | **Módulo 03** | [Módulo 04 →](04-dados-numeracao.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/03-hardware-arquitetura.md) · [Checkpoint 02](../praticas/checkpoints/checkpoint-02.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -141,6 +147,29 @@ A memória de um computador é organizada em uma **pirâmide** onde velocidade e
     ┌┴──────────────────────┴┐
     │  Armazenamento em nuvem │  ← mais lenta, maior, mais barata
     └────────────────────────┘
+```
+
+```mermaid
+graph TD
+    R["⚡ Registradores\n~1 ns · poucos KB"]
+    C1["Cache L1\n~2 ns · 64–128 KB"]
+    C2["Cache L2\n~5 ns · 256 KB–1 MB"]
+    C3["Cache L3\n~15 ns · 4–64 MB"]
+    RAM["🖥️ RAM (DRAM)\n~50–100 ns · 8–128 GB"]
+    SSD["💾 SSD (NVMe)\n~25 µs · até 8 TB"]
+    HDD["🗄️ HDD\n~5–10 ms · até 20 TB"]
+    NUV["☁️ Nuvem\nSegundos · ilimitado"]
+
+    R --> C1 --> C2 --> C3 --> RAM --> SSD --> HDD --> NUV
+
+    style R fill:#e53935,color:#fff
+    style C1 fill:#e64a19,color:#fff
+    style C2 fill:#f57c00,color:#fff
+    style C3 fill:#f9a825,color:#fff
+    style RAM fill:#558b2f,color:#fff
+    style SSD fill:#1565c0,color:#fff
+    style HDD fill:#4527a0,color:#fff
+    style NUV fill:#37474f,color:#fff
 ```
 
 ### 3.1 Princípio da Localidade
@@ -305,3 +334,7 @@ A arquitetura de Von Neumann, com mais de 75 anos, permanece como modelo dominan
 - TANENBAUM, Andrew S.; AUSTIN, Todd. *Structured Computer Organization*. 6. ed. Pearson, 2012.
 - VON NEUMANN, John. *First Draft of a Report on the EDVAC*. University of Pennsylvania, 1945. Disponível em: <https://web.mit.edu/STS.035/www/PDFs/edvac.pdf>
 - MONTEIRO, Mario A. *Introdução à Organização de Computadores*. 5. ed. LTC, 2007.
+
+---
+
+← [Módulo 02](02-logica-algoritmos-fluxo.md) | **Módulo 03** | [Módulo 04 →](04-dados-numeracao.md)

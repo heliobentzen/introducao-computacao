@@ -1,5 +1,11 @@
 # 08 — IA Generativa: Fundamentos, Uso Responsável e Engenharia de Prompt
 
+← [Módulo 07](07-inteligencia-artificial.md) | **Módulo 08** | [Início](../README.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/08-ia-generativa.md) · [Checkpoint 04](../praticas/checkpoints/checkpoint-04.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -51,6 +57,27 @@ Um LLM (Large Language Model) é uma rede neural baseada na arquitetura **Transf
 │ 3. Inferência   │  Usuário envia prompt → modelo gera resposta token por token
 │   (deploy)      │
 └─────────────────┘
+```
+
+```mermaid
+flowchart LR
+    DADOS["🌐 Dados\nda Internet\n(petabytes)"]
+    PRE["⚙️ Pré-treino\n(self-supervised)\nPrever próximo token"]
+    FT["🎯 Fine-tuning\n(RLHF / SFT)\nSeguir instruções"]
+    DEPLOY["🚀 Deploy\n(Inferência)\nAPI / Interface"]
+    PROMPT["👤 Prompt\ndo Usuário"]
+    RESP["💬 Resposta\nGerada"]
+
+    DADOS --> PRE --> FT --> DEPLOY
+    PROMPT --> DEPLOY
+    DEPLOY --> RESP
+
+    style DADOS fill:#37474f,color:#fff
+    style PRE fill:#1565c0,color:#fff
+    style FT fill:#6a1b9a,color:#fff
+    style DEPLOY fill:#2e7d32,color:#fff
+    style PROMPT fill:#e65100,color:#fff
+    style RESP fill:#00695c,color:#fff
 ```
 
 **RLHF (Reinforcement Learning from Human Feedback):** após o pré-treino, humanos avaliam respostas do modelo e esse feedback é usado para ajustar o comportamento — tornando-o mais útil, menos tóxico e mais alinhado com instruções (Ouyang et al., 2022).
@@ -314,3 +341,7 @@ A meta desta disciplina não é que você seja bom em usar IA. É que você seja
 - MIT. *Guidelines for AI in education*. 2023. Disponível em: <https://genai.mit.edu/>
 - RUSSELL, Stuart; NORVIG, Peter. *Artificial Intelligence: A Modern Approach*. 4. ed. Pearson, 2021.
 - BOMMASANI, Rishi et al. On the opportunities and risks of foundation models. *Stanford CRFM*, 2021. Disponível em: <https://arxiv.org/abs/2108.07258>
+
+---
+
+← [Módulo 07](07-inteligencia-artificial.md) | **Módulo 08** | [Início](../README.md)
