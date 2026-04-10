@@ -1,5 +1,11 @@
 # 04 — Representação de Dados e Sistemas de Numeração
 
+← [Módulo 03](03-hardware-arquitetura.md) | **Módulo 04** | [Módulo 05 →](05-sistemas-operacionais.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/04-dados-numeracao.md) · [Checkpoint 02](../praticas/checkpoints/checkpoint-02.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -50,6 +56,24 @@ Exemplo: 345 em base 10 = 3×10² + 4×10¹ + 5×10⁰ = 300 + 40 + 5 = 345.
 | 8 | Octal | 0-7 | Permissões Unix (chmod 755), legado |
 | 10 | Decimal | 0-9 | Uso humano cotidiano |
 | 16 | Hexadecimal | 0-9, A-F | Endereços de memória, cores CSS (#FF5733), depuração |
+
+```mermaid
+graph LR
+    DEC["🔟 Decimal\nBase 10\n(uso humano)"]
+    BIN["💡 Binário\nBase 2\n(hardware)"]
+    OCT["8️⃣ Octal\nBase 8\n(permissões Unix)"]
+    HEX["🔢 Hexadecimal\nBase 16\n(memória / depuração)"]
+
+    DEC -- "÷2 repetido" --> BIN
+    BIN -- "grupos de 3 bits" --> OCT
+    BIN -- "grupos de 4 bits" --> HEX
+    HEX -- "mais compacto que" --> BIN
+
+    style DEC fill:#1565c0,color:#fff
+    style BIN fill:#e53935,color:#fff
+    style OCT fill:#558b2f,color:#fff
+    style HEX fill:#6a1b9a,color:#fff
+```
 
 **Correspondência binário ↔ hexadecimal (agrupamento de 4 bits):**
 
@@ -401,3 +425,7 @@ Tudo em um computador — números, texto, fotos, músicas, vídeos, instruçõe
 - TANENBAUM, Andrew S.; AUSTIN, Todd. *Structured Computer Organization*. 6. ed. Pearson, 2012.
 - THE UNICODE CONSORTIUM. *The Unicode Standard*. Disponível em: <https://www.unicode.org/versions/latest/>
 - TOCCI, Ronald J.; WIDMER, Neal S.; MOSS, Gregory L. *Sistemas Digitais: Princípios e Aplicações*. 12. ed. Pearson, 2018.
+
+---
+
+← [Módulo 03](03-hardware-arquitetura.md) | **Módulo 04** | [Módulo 05 →](05-sistemas-operacionais.md)

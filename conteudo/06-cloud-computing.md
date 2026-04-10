@@ -1,5 +1,11 @@
 # 06 — Fundamentos de Cloud Computing
 
+← [Módulo 05](05-sistemas-operacionais.md) | **Módulo 06** | [Módulo 07 →](07-inteligencia-artificial.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/06-cloud-computing.md) · [Checkpoint 03](../praticas/checkpoints/checkpoint-03.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -51,6 +57,35 @@ Hoje o mercado global de cloud computing ultrapassa US$ 500 bilhões/ano (Gartne
 | Comprar pizza congelada | Alguém fez a massa e o molho; você assa e serve | **IaaS** |
 | Pedir delivery | Pizza pronta, você só escolhe e serve | **PaaS** |
 | Comer no restaurante | Tudo feito, você só consume | **SaaS** |
+
+```mermaid
+graph TD
+    OP["🏠 On-Premises\n(tudo seu)"]
+    IAAS["⚙️ IaaS\n(infra gerenciada)"]
+    PAAS["🧩 PaaS\n(plataforma gerenciada)"]
+    SAAS["☁️ SaaS\n(software pronto)"]
+
+    OP -- "provedor assume\nhardware, rede e VM" --> IAAS
+    IAAS -- "provedor assume\ntambém SO,\nmiddleware e runtime" --> PAAS
+    PAAS -- "provedor assume\ntudo — dados\ne app incluídos" --> SAAS
+
+    OP_R["👤 Você gerencia tudo:\nhardware, rede, VM, SO,\nmiddleware, runtime,\ndados e aplicação"]
+    IAAS_R["👤 Você gerencia:\nSO, middleware, runtime,\ndados e aplicação\n☁️ Provedor: hardware, rede e VM"]
+    PAAS_R["👤 Você gerencia:\ndados e código da aplicação\n☁️ Provedor: hardware até runtime"]
+    SAAS_R["☁️ Provedor gerencia tudo\n👤 Você: apenas usa o serviço"]
+
+    OP --- OP_R
+    IAAS --- IAAS_R
+    PAAS --- PAAS_R
+    SAAS --- SAAS_R
+
+    style OP fill:#c62828,color:#fff
+    style IAAS fill:#e65100,color:#fff
+    style PAAS fill:#1565c0,color:#fff
+    style SAAS fill:#2e7d32,color:#fff
+```
+
+> ☁️ = gerenciado pelo provedor · 👤 = responsabilidade do cliente
 
 ### 2.2 IaaS — Infrastructure as a Service
 
@@ -258,3 +293,7 @@ Cloud computing não é modismo — é a infraestrutura padrão do desenvolvimen
 - VELTE, Anthony T.; VELTE, Toby J.; ELSENPETER, Robert. *Cloud Computing: A Practical Approach*. McGraw-Hill, 2010.
 - AWS. *Shared Responsibility Model*. Disponível em: <https://aws.amazon.com/compliance/shared-responsibility-model/>
 - MANOEL, Sérgio da Silva. *Computação em Nuvem*. Brasport, 2015.
+
+---
+
+← [Módulo 05](05-sistemas-operacionais.md) | **Módulo 06** | [Módulo 07 →](07-inteligencia-artificial.md)

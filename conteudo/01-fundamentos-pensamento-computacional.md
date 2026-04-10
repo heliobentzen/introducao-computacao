@@ -1,5 +1,11 @@
 # 01 — Fundamentos e Pensamento Computacional
 
+← [Conteúdo](README.md) | **Módulo 01** | [Módulo 02 →](02-logica-algoritmos-fluxo.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/01-pensamento-computacional.md) · [Checkpoint 01](../praticas/checkpoints/checkpoint-01.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -50,6 +56,27 @@ O termo foi popularizado por Jeannette Wing (2006) em artigo seminal na *Communi
 Barr e Stephenson (2011) expandem a definição para o contexto educacional: pensamento computacional é um processo de solução de problemas que inclui formular problemas de forma que computadores possam ajudar a resolvê-los, organizar dados logicamente, representar dados por abstrações, automatizar soluções via pensamento algorítmico e generalizar soluções para classes de problemas.
 
 O framework mais adotado no ensino divide o pensamento computacional em quatro pilares:
+
+```mermaid
+mindmap
+  root((Pensamento\nComputacional))
+    Decomposição
+      Dividir problemas complexos
+      Subproblemas gerenciáveis
+      Divide et Impera
+    Reconhecimento\nde Padrões
+      Identificar regularidades
+      Reutilizar soluções
+      Generalizar
+    Abstração
+      Filtrar o irrelevante
+      Modelar a realidade
+      Interfaces vs. implementação
+    Algoritmos
+      Sequência finita de passos
+      Solução reproduzível
+      Análise de complexidade
+```
 
 ### 2.1 Decomposição
 
@@ -266,3 +293,7 @@ Apanhar do problema faz parte do método. Documentar *por que* apanhou é o que 
 - TURING, Alan M. On computable numbers, with an application to the Entscheidungsproblem. *Proceedings of the London Mathematical Society*, s2-42, p. 230-265, 1936. Disponível em: <https://doi.org/10.1112/plms/s2-42.1.230>
 - WING, Jeannette M. Computational thinking. *Communications of the ACM*, v. 49, n. 3, p. 33-35, 2006. Disponível em: <https://doi.org/10.1145/1118178.1118215>
 - WORLD ECONOMIC FORUM. *Future of Jobs Report 2023*. Disponível em: <https://www.weforum.org/reports/the-future-of-jobs-report-2023>
+
+---
+
+← [Conteúdo](README.md) | **Módulo 01** | [Módulo 02 →](02-logica-algoritmos-fluxo.md)

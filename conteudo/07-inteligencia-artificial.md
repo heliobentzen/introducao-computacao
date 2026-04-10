@@ -1,5 +1,11 @@
 # 07 — Introdução à Inteligência Artificial
 
+← [Módulo 06](06-cloud-computing.md) | **Módulo 07** | [Módulo 08 →](08-ia-generativa-responsavel.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/07-inteligencia-artificial.md) · [Checkpoint 04](../praticas/checkpoints/checkpoint-04.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -51,6 +57,31 @@ Cada inverno ensinou que IA funciona melhor quando expectativas são calibradas 
 ---
 
 ## 2. Paradigmas de IA
+
+```mermaid
+graph TD
+    IA["🤖 Inteligência Artificial"]
+    SIM["🧠 IA Simbólica\n(GOFAI)"]
+    ML["📊 Machine Learning"]
+    DL["🔬 Deep Learning"]
+    GEN["✨ IA Generativa\n(LLMs, Diffusion)"]
+
+    IA --> SIM
+    IA --> ML
+    ML --> DL
+    DL --> GEN
+
+    SIM --- SE["Sistemas Especialistas\nRedes Bayesianas\nLógica Fuzzy"]
+    ML --- TIPOS["Supervisionado\nNão Supervisionado\nPor Reforço"]
+    DL --- ARQS["CNN · RNN · LSTM\nTransformer · GAN"]
+    GEN --- MOD["GPT · BERT · DALL-E\nStable Diffusion"]
+
+    style IA fill:#1a237e,color:#fff
+    style SIM fill:#4527a0,color:#fff
+    style ML fill:#1565c0,color:#fff
+    style DL fill:#00695c,color:#fff
+    style GEN fill:#e65100,color:#fff
+```
 
 ### 2.1 IA Simbólica (GOFAI — Good Old-Fashioned AI)
 
@@ -263,3 +294,7 @@ IA é uma das áreas mais impactantes e mais incompreendidas da computação. Pa
 - TURING, Alan M. Computing machinery and intelligence. *Mind*, v. 59, n. 236, p. 433-460, 1950. Disponível em: <https://doi.org/10.1093/mind/LIX.236.433>
 - VASWANI, Ashish et al. Attention is all you need. *NeurIPS*, 2017. Disponível em: <https://arxiv.org/abs/1706.03762>
 - FACELI, Katti et al. *Inteligência Artificial: Uma Abordagem de Aprendizado de Máquina*. 2. ed. LTC, 2021.
+
+---
+
+← [Módulo 06](06-cloud-computing.md) | **Módulo 07** | [Módulo 08 →](08-ia-generativa-responsavel.md)
