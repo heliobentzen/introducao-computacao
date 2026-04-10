@@ -43,13 +43,13 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# ☁️ Cloud Computing
+# Cloud Computing
 
 ---
 
 ## Definição NIST
 
-> Acesso **sob demanda** a um pool compartilhado de recursos computacionais. — Mell & Grance, 2011
+> Acesso **sob demanda** a um pool compartilhado de recursos computacionais. (Mell & Grance, 2011)
 
 | # | Característica |
 |:-:|---------------|
@@ -70,7 +70,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 | **SaaS** | Apenas usa | Gmail, Office 365 |
 | **FaaS** | Só a função | Lambda, Functions |
 
-> Quanto mais *"aaS"*, menos controle — e menos responsabilidade infra.
+> Quanto mais *"aaS"*, menos controle, e menos responsabilidade infra.
 
 ---
 
@@ -78,10 +78,10 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 | Modelo | Quem usa | Exemplo |
 |--------|---------|---------|
-| ☁️ **Pública** | Qualquer org. | AWS, Azure, GCP |
-| 🏢 **Privada** | Apenas uma org. | OpenStack |
-| 🔀 **Híbrida** | Pública + Privada | Maioria enterprise |
-| 🌐 **Multi-cloud** | Vários provedores | Netflix |
+| **Pública** | Qualquer org. | AWS, Azure, GCP |
+| **Privada** | Apenas uma org. | OpenStack |
+| **Híbrida** | Pública + Privada | Maioria enterprise |
+| **Multi-cloud** | Vários provedores | Netflix |
 
 ---
 
@@ -89,16 +89,16 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 | Camada | IaaS | PaaS | SaaS |
 |--------|:----:|:----:|:----:|
-| Hardware / Rede | ☁️ | ☁️ | ☁️ |
-| SO / Runtime | **Você** | ☁️ | ☁️ |
-| Aplicação | **Você** | **Você** | ☁️ |
+| Hardware / Rede | Cloud | Cloud | Cloud |
+| SO / Runtime | **Você** | Cloud | Cloud |
+| Aplicação | **Você** | **Você** | Cloud |
 | Dados + Identidade | **Você** | **Você** | **Você** |
 
 > Seus dados e identidades são **sempre** sua responsabilidade.
 
 ---
 
-## SLA — Disponibilidade
+## SLA: Disponibilidade
 
 | SLA | Downtime / ano | Downtime / mês |
 |:---:|:--------------:|:--------------:|
@@ -114,19 +114,19 @@ $$A = 1 - (1 - 0{,}9995)^2 = 99{,}9999\%$$
 
 ## Teorema CAP
 
-> Em sistema distribuído, escolha **2 de 3** — Brewer, 2000
+> Em sistema distribuído, escolha **2 de 3**. (Brewer, 2000)
 
 | Letra | Propriedade |
 |:-----:|------------|
-| **C** | Consistência — leitura mais recente |
-| **A** | Disponibilidade — sempre responde |
-| **P** | Tolerância a partição — funciona com falha de rede |
+| **C** | Consistência, leitura mais recente |
+| **A** | Disponibilidade, sempre responde |
+| **P** | Tolerância a partição, funciona com falha de rede |
 
 Bancos NoSQL: geralmente sacrificam **C** para ganhar A + P.
 
 ---
 
-## FinOps — Custo na Nuvem
+## FinOps: Custo na Nuvem
 
 | Modelo de preço | Economia | Risco |
 |----------------|:--------:|-------|

@@ -43,7 +43,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# 🖥️ Hardware e Arquitetura
+# Hardware e Arquitetura
 
 ---
 
@@ -51,7 +51,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 | Geração | Tecnologia | Marco |
 |:-------:|-----------|-------|
-| 1ª 1940s | Válvulas | ENIAC — 30 ton |
+| 1ª 1940s | Válvulas | ENIAC, 30 ton |
 | 2ª 1950s | Transistores | IBM 7094 |
 | 3ª 1960s | Circuitos integrados | IBM System/360 |
 | 4ª 1970s+ | Microprocessadores | Intel 4004 → Core |
@@ -93,7 +93,7 @@ Repete **bilhões** de vezes/segundo (GHz).
 
 ## Von Neumann Bottleneck
 
-> CPU é mais rápida que o caminho até a memória. — Backus, 1978
+> CPU é mais rápida que o caminho até a memória. (Backus, 1978)
 
 | Técnica | Como resolve |
 |---------|-------------|
@@ -106,15 +106,15 @@ Repete **bilhões** de vezes/segundo (GHz).
 ## Hierarquia de Memória
 
 ```
-    ⚡ Registradores   ~0.3 ns    bytes
-    ⚡ Cache L1        ~1 ns      64 KB
-    ⚡ Cache L2/L3     ~4-10 ns   256 KB–32 MB
-    💾 RAM DDR5        ~80 ns     16–64 GB
-    💿 SSD NVMe        ~25 μs     512 GB–4 TB
-    📀 HDD             ~5 ms      1–20 TB
+    Registradores   ~0.3 ns    bytes
+    Cache L1        ~1 ns      64 KB
+    Cache L2/L3     ~4-10 ns   256 KB–32 MB
+    RAM DDR5        ~80 ns     16–64 GB
+    SSD NVMe        ~25 μs     512 GB–4 TB
+    HDD             ~5 ms      1–20 TB
 ```
 
-⬆️ *Mais rápido, menor, mais caro* · ⬇️ *Mais lento, maior, mais barato*
+*Mais rápido, menor, mais caro* · *Mais lento, maior, mais barato*
 
 ---
 
@@ -146,7 +146,7 @@ Repete **bilhões** de vezes/segundo (GHz).
 ## Referências
 
 - Tanenbaum (2013). *Structured Computer Organization*
-- Patterson & Hennessy (2021). *Computer Org. and Design* — RISC-V
+- Patterson & Hennessy (2021). *Computer Org. and Design*: RISC-V
 - Backus (1978). *Can Programming Be Liberated…?*
 
 **→ Checkpoint 02** · com módulo 04

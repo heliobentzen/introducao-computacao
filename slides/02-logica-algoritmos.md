@@ -43,7 +43,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# ⚙️ Lógica, Algoritmos e Fluxo
+# Lógica, Algoritmos e Fluxo
 
 ---
 
@@ -69,7 +69,7 @@ Todo algoritmo computável usa **apenas 3 estruturas**:
 | OU (OR)  | ∨ | `vip ∨ convidado` |
 | NÃO (NOT)| ¬ | `¬bloqueado` |
 
-**Leis de De Morgan** — simplificam condicionais:
+**Leis de De Morgan**, simplificam condicionais:
 
 ```
 ¬(A ∧ B)  =  ¬A ∨ ¬B
@@ -113,22 +113,22 @@ FIM PARA
 
 ---
 
-## Exemplo Evolutivo — Notas
+## Exemplo Evolutivo: Notas
 
-**v1 — Sequência:**
+**v1: Sequência:**
 
 ```
 media ← (nota1 + nota2) / 2
 ```
 
-**v2 — Com decisão:**
+**v2: Com decisão:**
 
 ```
 SE media >= 7 → "Aprovado"
 SENÃO SE media >= 5 → "Recuperação"
 ```
 
-**v3 — Com laço (turma):**
+**v3: Com laço (turma):**
 
 ```
 PARA aluno DE 1 ATÉ 40 FAÇA …
@@ -136,7 +136,7 @@ PARA aluno DE 1 ATÉ 40 FAÇA …
 
 ---
 
-## Fluxograma — ISO 5807
+## Fluxograma: ISO 5807
 
 | Símbolo | Significado |
 |:-------:|-----------|
@@ -149,16 +149,16 @@ PARA aluno DE 1 ATÉ 40 FAÇA …
 
 ---
 
-## Trace Table — Depuração Manual
+## Trace Table: Depuração Manual
 
-Simula execução passo a passo — encontra bugs **antes** de rodar.
+Simula execução passo a passo, encontra bugs **antes** de rodar.
 
 | Passo | i | soma | i ≤ 3? |
 |:-----:|:-:|:----:|:------:|
-| 0 | 1 | 0 | ✅ |
-| 1 | 1 | 1 | ✅ |
-| 2 | 2 | 3 | ✅ |
-| 3 | 3 | 6 | ❌ sai |
+| 0 | 1 | 0 | Sim |
+| 1 | 1 | 1 | Sim |
+| 2 | 2 | 3 | Sim |
+| 3 | 3 | 6 | Não, sai |
 
 Resultado: `soma = 6`
 
@@ -168,6 +168,6 @@ Resultado: `soma = 6`
 
 - Böhm & Jacopini (1966). *Flow diagrams, Turing machines*
 - Cormen et al. (2022). *Introduction to Algorithms*, 4ª ed.
-- ISO 5807:1985 — Flowchart symbols
+- ISO 5807:1985, Flowchart symbols
 
 **→ Checkpoint 01** · com módulo 01

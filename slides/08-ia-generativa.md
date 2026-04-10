@@ -43,7 +43,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# ✨ IA Generativa e Uso Responsável
+# IA Generativa e Uso Responsável
 
 ---
 
@@ -51,9 +51,9 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 > Rede Transformer treinada em texto massivo para **prever o próximo token**.
 
-- ❌ Não é busca em banco de dados
-- ❌ Não "sabe" o que é verdade
-- ✅ Gera texto que **parece** plausível
+- Não é busca em banco de dados
+- Não "sabe" o que é verdade
+- Gera texto que **parece** plausível
 
 ```
 Pré-treino → Fine-tuning (RLHF) → Inferência (seu prompt)
@@ -84,11 +84,11 @@ LLMs processam **tokens**, não palavras.
 | "Hello world" | `["Hello", " world"]` |
 
 - Palavras comuns = 1 token · Raras = vários
-- 🇧🇷 Português usa **mais tokens** que inglês
+- Português usa **mais tokens** que inglês
 
 ---
 
-## Alucinação — O Problema Central
+## Alucinação: O Problema Central
 
 > Modelo gera informação **incorreta com aparência confiável**.
 
@@ -106,11 +106,11 @@ Causa: otimiza *coerência textual*, não *veracidade*.
 
 | Componente | Função |
 |:----------:|--------|
-| 🎭 **Role** | Persona do modelo |
-| 📋 **Context** | Informação de fundo |
-| ✅ **Task** | O que você quer |
-| 📐 **Format** | Estrutura da resposta |
-| 🚫 **Constraints** | Limites e condições |
+| **Role** | Persona do modelo |
+| **Context** | Informação de fundo |
+| **Task** | O que você quer |
+| **Format** | Estrutura da resposta |
+| **Constraints** | Limites e condições |
 
 ---
 
@@ -127,7 +127,7 @@ Causa: otimiza *coerência textual*, não *veracidade*.
 
 ## Prompt Ruim vs Bom
 
-| ❌ Ruim | ✅ Melhor |
+| Ruim | Melhor |
 |---------|----------|
 | "Me fala de cloud" | "Explique IaaS, PaaS, SaaS com exemplo para iniciante ADS" |
 | "Faz um código bom" | "Função Python: lista de notas → média/max/min com validação" |
@@ -146,7 +146,7 @@ Avalie **toda** resposta de IA:
 | **C** | Cobre o que foi *pedido*? |
 | **T** | Terminologia *correta*? |
 
-🚩 Red flags: confiança excessiva · citações desconhecidas · números perfeitos demais
+Red flags: confiança excessiva · citações desconhecidas · números perfeitos demais
 
 ---
 
@@ -157,7 +157,7 @@ Avalie **toda** resposta de IA:
 3. Travou? Volte ao material **naquele ponto**
 4. Repita até explicar fluentemente
 
-> Se não consegue explicar sem consultar, *não aprendeu* — apenas leu.
+> Se não consegue explicar sem consultar, *não aprendeu*, apenas leu.
 
 ---
 
@@ -165,11 +165,11 @@ Avalie **toda** resposta de IA:
 
 | Uso | OK? |
 |-----|:---:|
-| Entender conceito | ✅ |
-| Gerar exercícios para praticar | ✅ |
-| Revisar seu texto/código | ✅ (cite) |
-| Submeter output como trabalho | ❌ Fraude |
-| Usar sem verificar | ⚠️ Risco |
+| Entender conceito | Sim |
+| Gerar exercícios para praticar | Sim |
+| Revisar seu texto/código | Sim (cite) |
+| Submeter output como trabalho | Não (fraude) |
+| Usar sem verificar | Atenção: Risco |
 
 ---
 
