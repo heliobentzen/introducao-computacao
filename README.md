@@ -129,6 +129,7 @@ Apresentar ao estudante os fundamentos da computação, desde conceitos básicos
 │   ├── metodologias-ativas.md
 │   └── rubrica-avaliacao.md
 └── slides/
+    ├── README.md
     ├── 01-pensamento-computacional.md
     ├── 02-logica-algoritmos.md
     ├── 03-hardware-arquitetura.md

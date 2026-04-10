@@ -1,6 +1,6 @@
 # Sprint 3 — Inteligência Artificial e Apresentação Final
 
-> **Módulos de referência:** [07 — Inteligência Artificial](../../conteudo/07-inteligencia-artificial.md), [08 — IA Generativa](../../conteudo/08-ia-generativa-responsavel.md) e [09 — Método de Estudo](../../conteudo/09-metodo-de-estudo.md)  
+> **Módulos de referência:** [07 — Inteligência Artificial](../../conteudo/07-inteligencia-artificial.md) e [08 — IA Generativa](../../conteudo/08-ia-generativa-responsavel.md)  
 > **Duração:** Semanas 13–16  
 > **Entrega:** feature de IA + pitch técnico final
 
