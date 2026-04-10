@@ -59,47 +59,30 @@ Hoje o mercado global de cloud computing ultrapassa US$ 500 bilhões/ano (Gartne
 | Comer no restaurante | Tudo feito, você só consume | **SaaS** |
 
 ```mermaid
-graph LR
-    subgraph "🏠 On-Premises"
-        OP_HW["Hardware"]
-        OP_NET["Rede"]
-        OP_VM["Virtualização"]
-        OP_OS["SO"]
-        OP_MID["Middleware"]
-        OP_RT["Runtime"]
-        OP_DB["Dados"]
-        OP_APP["Aplicação"]
-    end
-    subgraph "IaaS"
-        I_HW["☁️ Hardware"]
-        I_NET["☁️ Rede"]
-        I_VM["☁️ Virtualização"]
-        I_OS["👤 SO"]
-        I_MID["👤 Middleware"]
-        I_RT["👤 Runtime"]
-        I_DB["👤 Dados"]
-        I_APP["👤 Aplicação"]
-    end
-    subgraph "PaaS"
-        P_HW["☁️ Hardware"]
-        P_NET["☁️ Rede"]
-        P_VM["☁️ Virtualização"]
-        P_OS["☁️ SO"]
-        P_MID["☁️ Middleware"]
-        P_RT["☁️ Runtime"]
-        P_DB["👤 Dados"]
-        P_APP["👤 Aplicação"]
-    end
-    subgraph "SaaS"
-        S_HW["☁️ Hardware"]
-        S_NET["☁️ Rede"]
-        S_VM["☁️ Virtualização"]
-        S_OS["☁️ SO"]
-        S_MID["☁️ Middleware"]
-        S_RT["☁️ Runtime"]
-        S_DB["☁️ Dados"]
-        S_APP["☁️ Aplicação"]
-    end
+graph TD
+    OP["🏠 On-Premises\n(tudo seu)"]
+    IAAS["⚙️ IaaS\n(infra gerenciada)"]
+    PAAS["🧩 PaaS\n(plataforma gerenciada)"]
+    SAAS["☁️ SaaS\n(software pronto)"]
+
+    OP -- "provedor assume\nhardware, rede e VM" --> IAAS
+    IAAS -- "provedor assume\ntambém SO,\nmiddleware e runtime" --> PAAS
+    PAAS -- "provedor assume\ntudo — dados\ne app incluídos" --> SAAS
+
+    OP_R["👤 Você gerencia tudo:\nhardware, rede, VM, SO,\nmiddleware, runtime,\ndados e aplicação"]
+    IAAS_R["👤 Você gerencia:\nSO, middleware, runtime,\ndados e aplicação\n☁️ Provedor: hardware, rede e VM"]
+    PAAS_R["👤 Você gerencia:\ndados e código da aplicação\n☁️ Provedor: hardware até runtime"]
+    SAAS_R["☁️ Provedor gerencia tudo\n👤 Você: apenas usa o serviço"]
+
+    OP --- OP_R
+    IAAS --- IAAS_R
+    PAAS --- PAAS_R
+    SAAS --- SAAS_R
+
+    style OP fill:#c62828,color:#fff
+    style IAAS fill:#e65100,color:#fff
+    style PAAS fill:#1565c0,color:#fff
+    style SAAS fill:#2e7d32,color:#fff
 ```
 
 > ☁️ = gerenciado pelo provedor · 👤 = responsabilidade do cliente
