@@ -112,12 +112,42 @@ Focar no **essencial**, descartar o irrelevante.
 
 ## Pilar 4: Algoritmos
 
-Sequência **finita, ordenada e não-ambígua** de passos.
+Sequência **finita, ordenada e não-ambígua** de passos. (Knuth, 1997)
 
-- **Finitude**: termina em tempo finito
-- **Definitude**: cada passo é preciso
-- **Entrada/Saída**: recebe dados, produz resultado
-- **Efetividade**: cada passo é realizável
+```
+Algoritmo: Calcular média
+Entrada: nota1, nota2, nota3
+1. soma ← nota1 + nota2 + nota3
+2. media ← soma / 3
+3. Se media >= 7 → "Aprovado"
+   Senão → "Reprovado"
+4. Retornar resultado
+```
+
+---
+
+## Algoritmos: Eficiência Importa
+
+Buscar um nome em lista de 1.000.000:
+
+| Algoritmo | Passos (pior caso) |
+|-----------|:-----------------:|
+| **Busca linear** | 1.000.000 |
+| **Busca binária** | ~20 |
+
+> *Escolher o algoritmo errado pode ser 50.000× mais lento.*
+
+---
+
+## Qualidade de Soluções
+
+| Critério | Pergunta | Exemplo de falha |
+|----------|---------|-----------------|
+| **Correção** | Produz o resultado certo? | `>= 7` vs `> 7` — aprova 6.99 |
+| **Eficiência** | Usa recursos razoavelmente? | Busca linear em 1M de registros ordenados |
+| **Clareza** | Outra pessoa consegue ler? | Variáveis `a`, `b`, `c` sem contexto |
+
+*Correto primeiro · Eficiente depois · Legível sempre*
 
 ---
 
@@ -132,6 +162,32 @@ Sequência **finita, ordenada e não-ambígua** de passos.
 ```
 
 > Existem problemas que **nenhum algoritmo** pode resolver.
+
+---
+
+## Computabilidade na Prática
+
+Problemas **NP-difíceis** não têm solução perfeita viável:
+
+| Problema | Exemplo real |
+|----------|------------|
+| Caixeiro-viajante | Otimizar rotas de entrega |
+| Escalonamento | Grade de horários sem conflito |
+| Coloração de grafos | Frequências de torres de rádio |
+
+**Resposta:** buscamos *aproximações boas o suficiente*, não soluções perfeitas.
+
+---
+
+## Erros Clássicos de Iniciantes
+
+| Erro | Como evitar |
+|------|------------|
+| Codar antes de entender | Escreva o algoritmo no papel primeiro |
+| Passos ambíguos | Cada passo deve ser verificável |
+| Ignorar casos extremos | Teste normal + limite + inválido |
+| Não testar com dados reais | Execute manualmente (teste de mesa) |
+| Complexidade = qualidade | A solução mais simples é a melhor |
 
 ---
 

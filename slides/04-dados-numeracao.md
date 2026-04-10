@@ -126,6 +126,39 @@ Representar −45 em 8 bits:
 
 ---
 
+## Soma Binária com Carry
+
+Regras fundamentais: 0+0=0 · 0+1=1 · 1+1=10 (carry!)
+
+```
+  Carry:  1 1 1
+          1 0 1 1   (11₁₀)
+        + 1 1 0 1   (13₁₀)
+        ---------
+       1 1 0 0 0    (24₁₀) ✓
+```
+
+**Overflow:** resultado excede a faixa representável em N bits.
+
+---
+
+## Caso Real: Ariane 5 (1996)
+
+- Foguete de **US$ 370 mi** explodiu em 37 segundos
+- Causa: float 64-bit → int 16-bit = **overflow**
+- Velocidade excedeu 32.767 (máx de int16)
+
+```
+  01111111  (+127)     em 8 bits com sinal:
++ 00000001  (+1)
+----------
+  10000000  (-128!) ← bit de sinal "virou"
+```
+
+> Representação de dados não é detalhe, é **infraestrutura**.
+
+---
+
 ## IEEE 754: Ponto Flutuante
 
 32 bits (precisão simples):
@@ -140,25 +173,26 @@ Representar −45 em 8 bits:
 
 ---
 
-## Caso Real: Ariane 5 (1996)
-
-- Foguete de **US$ 370 mi** explodiu em 37 segundos
-- Causa: float 64-bit → int 16-bit = **overflow**
-- Velocidade excedeu 32.767 (máx de int16)
-
-> Representação de dados não é detalhe, é **infraestrutura**.
-
----
-
 ## Codificação de Texto
 
 | Padrão | Bits | Cobertura |
 |--------|:----:|----------|
 | ASCII | 7 | 128 chars, inglês |
 | Unicode | variável | 155k+ chars, 168 scripts |
-| **UTF-8** | 1–4 bytes | Padrão da web |
+| **UTF-8** | 1–4 bytes | Padrão da web (>98%) |
 
-`"A"` = 1 byte · `"ç"` = 2 · `"漢"` = 3 · `"emoji"` = 4
+---
+
+## UTF-8: Como Funciona
+
+| Caractere | Unicode | Bytes | UTF-8 (hex) |
+|-----------|---------|:-----:|-------------|
+| `A` | U+0041 | 1 | `41` |
+| `ç` | U+00E7 | 2 | `C3 A7` |
+| `中` | U+4E2D | 3 | `E4 B8 AD` |
+| `😀` | U+1F600 | 4 | `F0 9F 98 80` |
+
+**Compatível com ASCII:** texto inglês puro = 1 byte/char. Texto em português (acentos) = ligeiramente maior.
 
 ---
 
@@ -168,9 +202,13 @@ Representar −45 em 8 bits:
 $$\text{Tamanho} = W \times H \times \text{profundidade}$$
 1920×1080 × 3 B (RGB) ≈ **5.9 MB** / frame
 
-**Áudio (PCM):**
-$$\text{Tamanho} = \text{taxa} \times \text{bits} \times \text{canais} \times \text{seg}$$
+**Áudio (PCM) — Teorema de Nyquist-Shannon:**
+
+> Taxa de amostragem ≥ 2 × frequência máxima do sinal
+
 44.1 kHz × 16 bit × 2 ch × 60 s ≈ **10 MB** / min
+
+Formatos MP3/AAC removem frequências imperceptíveis pelo ouvido.
 
 ---
 

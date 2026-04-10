@@ -78,6 +78,33 @@ Todo algoritmo computável usa **apenas 3 estruturas**:
 
 ---
 
+## Tabela-Verdade Completa
+
+| P | Q | P ∧ Q | P ∨ Q | ¬P | P → Q |
+|:-:|:-:|:-----:|:-----:|:--:|:-----:|
+| V | V | **V** | **V** | F | **V** |
+| V | F | **F** | **V** | F | **F** |
+| F | V | **F** | **V** | V | **V** |
+| F | F | **F** | **F** | V | **V** |
+
+> P → Q é falso **apenas** quando P é V e Q é F.
+
+---
+
+## De Morgan na Prática
+
+```
+// Condição original
+NÃO (é_professor E está_matriculado)
+
+// De Morgan: ¬(A ∧ B) = ¬A ∨ ¬B
+= NÃO é_professor OU NÃO está_matriculado
+```
+
+Simplifica condicionais em código e **elimina bugs lógicos**.
+
+---
+
 ## Estrutura Condicional
 
 ```
@@ -121,17 +148,38 @@ FIM PARA
 media ← (nota1 + nota2) / 2
 ```
 
-**v2: Com decisão:**
+**v2: Com decisão encadeada:**
 
 ```
-SE media >= 7 → "Aprovado"
-SENÃO SE media >= 5 → "Recuperação"
+SE frequencia < 75 → "Reprovado por falta"
+SENÃO SE nota >= 7.0 → "Aprovado"
+SENÃO SE nota >= 5.0 → "Recuperação"
+SENÃO → "Reprovado por nota"
 ```
 
-**v3: Com laço (turma):**
+**v3: Com laço (turma de 30):**
 
 ```
-PARA aluno DE 1 ATÉ 40 FAÇA …
+PARA aluno DE 1 ATÉ 30 FAÇA …
+```
+
+---
+
+## Pseudocódigo v4: Com Validação
+
+```
+PARA i DE 1 ATÉ 30 FAÇA
+  REPITA
+    ESCREVA "Nota do aluno", i, "(0 a 10):"
+    LEIA nota
+    SE nota < 0 OU nota > 10 ENTÃO
+      ESCREVA "Nota inválida. Tente novamente."
+    FIMSE
+  ATÉ nota >= 0 E nota <= 10
+
+  soma_notas ← soma_notas + nota
+FIMPARA
+ESCREVA "Média:", soma_notas / 30
 ```
 
 ---
@@ -161,6 +209,42 @@ Simula execução passo a passo, encontra bugs **antes** de rodar.
 | 3 | 3 | 6 | Não, sai |
 
 Resultado: `soma = 6`
+
+---
+
+## Trace Table: Encontrando o Bug
+
+```
+// Exibir pares de 2 a 10
+n ← 2
+ENQUANTO n < 10 FAÇA
+  ESCREVA n    // bug: 10 não aparece!
+  n ← n + 2
+FIMENQUANTO
+```
+
+| n | n < 10? | Exibe |
+|:-:|:-------:|:-----:|
+| 2 | V | 2 |
+| 4 | V | 4 |
+| 8 | V | 8 |
+| 10 | **F** | — |
+
+**Bug off-by-one:** trocar `< 10` por `<= 10`.
+
+---
+
+## Análise de Valor Limite
+
+Antes de declarar que funciona, teste **3 categorias**:
+
+| Categoria | Exemplo (notas) |
+|-----------|----------------|
+| **Normal** | nota = 8.5, freq = 90% |
+| **Limite** | nota = 7.0 e 6.99; freq = 75% e 74% |
+| **Inválido** | nota = -3, nota = 15 |
+
+> Testou a **fronteira**? É onde a maioria dos bugs se esconde.
 
 ---
 

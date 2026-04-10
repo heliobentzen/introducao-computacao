@@ -62,8 +62,10 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 | Ano | Marco |
 |:---:|-------|
-| 1950 | Turing: "Máquinas podem pensar?" |
+| 1943 | McCulloch & Pitts — neurônio artificial |
+| 1950 | Turing: "As máquinas podem pensar?" |
 | 1956 | Dartmouth: termo "AI" cunhado |
+| 1986 | Backpropagation — redes multicamada viáveis |
 | 1997 | Deep Blue vence Kasparov |
 | 2012 | AlexNet: Deep Learning domina visão |
 | 2017 | Transformer: *Attention Is All You Need* |
@@ -99,6 +101,18 @@ Dados → Pré-proc. → Treino → Modelo → Inferência
 
 ---
 
+## Ciclo de Machine Learning
+
+| Fase | Atividade | Armadilha |
+|------|----------|-----------|
+| **Dados** | Coletar, limpar, rotular | Viés nos dados → viés no modelo |
+| **Treino** | Ajustar pesos do modelo | Overfitting (decorar, não aprender) |
+| **Avaliação** | Métricas em dados novos | Usar mesmos dados de treino |
+| **Deploy** | Servir o modelo em produção | Dados reais ≠ dados de treino |
+| **Monitoramento** | Detectar degradação | Model drift |
+
+---
+
 ## Arquiteturas Deep Learning
 
 | Arquitetura | Uso principal |
@@ -109,6 +123,19 @@ Dados → Pré-proc. → Treino → Modelo → Inferência
 | **Transformer** | NLP, visão, multimodal, domina tudo |
 
 > **Backpropagation:** erro na saída é propagado de volta, ajustando pesos camada a camada.
+
+---
+
+## Transformer: A Arquitetura Dominante
+
+**Atenção (Attention):** o modelo aprende *quais partes do contexto importam* para cada palavra.
+
+```
+"O banco {estava} fechado por causa da [chuva forte]"
+         ↑ qual banco? o financeiro (contexto = chuva)
+```
+
+Sem Transformer: GPT-3 (2020), ChatGPT (2022), Gemini (2023) não existiriam.
 
 ---
 

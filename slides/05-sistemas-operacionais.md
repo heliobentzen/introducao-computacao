@@ -88,6 +88,19 @@ Funções: processos · memória · arquivos · I/O · segurança
 
 ---
 
+## Processo vs. Thread
+
+| | Processo | Thread |
+|:-:|---------|--------|
+| Memória | Espaço próprio | Compartilhada no processo |
+| Isolamento | Alto | Baixo |
+| Custo criação | Alto | Baixo |
+| Exemplo | Aba do Chrome | JS + Render + Rede da mesma aba |
+
+> Chrome cria **processos** por aba (isolamento). Cada aba usa **threads** internamente.
+
+---
+
 ## Escalonamento de CPU
 
 | Algoritmo | Preemptivo? | Problema |
@@ -144,6 +157,25 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 ---
 
+## Thrashing: Quando a RAM Acaba
+
+**Thrashing:** SO passa mais tempo fazendo swap do que executando.
+
+```
+RAM cheia → páginas vão ao disco
+→ processos pedem páginas de volta
+→ disco a 100% → sistema "congela"
+```
+
+| Sintoma | Diagnóstico |
+|---------|------------|
+| Disco a 100% continuamente | Verificar uso de swap |
+| CPU ociosa com sistema lento | Thrashing em andamento |
+
+**Solução:** fechar apps, aumentar RAM ou reduzir processos.
+
+---
+
 ## Sistemas de Arquivos
 
 | FS | SO | Journaling | Máx. arquivo |
@@ -152,6 +184,8 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 | NTFS | Windows | Sim | 16 EB |
 | APFS | macOS | Sim | 8 EB |
 | FAT32 | Universal | Não | 4 GB |
+
+**Journaling:** registra a operação pretendida antes de modificar. Permite recuperar consistência após falha de energia.
 
 ---
 
@@ -164,6 +198,23 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 | `cd` · `mkdir` · `rm` | Navegar / gerenciar |
 | `grep "x" arq` | Buscar texto |
 | `chmod 755 script.sh` | Permissões |
+
+---
+
+## Pipeline Unix: Compor Comandos
+
+```bash
+# Contar erros no log
+cat sistema.log | grep "ERROR" | wc -l
+
+# 10 maiores arquivos
+du -sh * | sort -rh | head -10
+
+# Redirecionar saída
+ls -la > listagem.txt
+```
+
+> Filosofia Unix: *programas pequenos que se compõem* — base de microsserviços.
 
 ---
 
