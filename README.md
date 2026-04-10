@@ -23,10 +23,10 @@
 flowchart LR
     A([🚀 Início]) --> M01
     M01["📖 01 · Pensamento\nComputacional"] --> M02
-    M02["📖 02 · Lógica &\nAlgoritmos"] --> CP1{{"✅ Checkpoint 1"}}
+    M02["📖 02 · Lógica e\nAlgoritmos"] --> CP1{{"✅ Checkpoint 1"}}
     CP1 --> M03
-    M03["📖 03 · Hardware &\nArquitetura"] --> M04
-    M04["📖 04 · Dados &\nNumeração"] --> CP2{{"✅ Checkpoint 2"}}
+    M03["📖 03 · Hardware e\nArquitetura"] --> M04
+    M04["📖 04 · Dados e\nNumeração"] --> CP2{{"✅ Checkpoint 2"}}
     CP2 --> M05
     M05["📖 05 · Sistemas\nOperacionais"] --> M06
     M06["📖 06 · Cloud\nComputing"] --> CP3{{"✅ Checkpoint 3"}}
@@ -109,6 +109,37 @@ Apresentar ao estudante os fundamentos da computação, desde conceitos básicos
 | 12 | Codificação de texto (ASCII, Unicode/UTF-8), imagens e áudio |
 | 13 | Introdução aos sistemas operacionais: conceitos e histórico |
 | 14 | Gerenciamento de processos e escalonamento |
+| 15 | Gerenciamento de memória: paginação, memória virtual e swap |
+| 16 | Sistema de arquivos, permissões e interface de linha de comando |
+| 17 | Fundamentos de Cloud Computing: definição NIST e histórico |
+| 18 | Modelos de serviço: IaaS, PaaS e SaaS — características e exemplos |
+| 19 | Modelos de implantação, responsabilidade compartilhada e FinOps |
+| 20 | Revisão e **Checkpoint 3** (Módulos 05 + 06) |
+
+### Unidade II — Inteligência Artificial e Uso Responsável (Aulas 21–40)
+
+| Aula(s) | Tópico |
+|---------|--------|
+| 21 | Introdução à Inteligência Artificial: histórico e paradigmas |
+| 22 | IA Simbólica vs. Aprendizado de Máquina: diferenças e aplicações |
+| 23 | Machine Learning: ciclo de vida, dados de treino e modelos |
+| 24 | Deep Learning e redes neurais: fundamentos e casos de uso |
+| 25 | IA no desenvolvimento de software: ferramentas e impacto na carreira |
+| 26 | Ética em IA: viés algorítmico, responsabilidade e regulação |
+| 27 | **Checkpoint 4** (Módulos 07 + 08) + introdução à IA Generativa |
+| 28 | Large Language Models (LLMs): o que são, como funcionam |
+| 29 | Alucinação em LLMs: causas, exemplos e estratégias de mitigação |
+| 30 | Engenharia de prompt: técnicas estruturadas e boas práticas |
+| 31 | Avaliação crítica de respostas: framework FACT e sinais de alerta |
+| 32 | IA Generativa no aprendizado e no trabalho profissional |
+| 33 | Projeto integrador — Sprint 0: apresentação e formação de grupos |
+| 34 | Projeto integrador — Sprint 1: modelagem e definição do problema |
+| 35 | Projeto integrador — Sprint 2: infraestrutura e serviços em nuvem |
+| 36 | Projeto integrador — Sprint 3: aplicação de IA e preparação do pitch |
+| 37 | Apresentação dos projetos integradores (grupos A e B) |
+| 38 | Apresentação dos projetos integradores (grupos C e D) + feedback |
+| 39 | Revisão geral: fundamentos, hardware, SO e cloud |
+| 40 | Revisão geral: IA, IA Generativa e **Avaliação Final da Unidade II** |
 
 ---
 
@@ -194,7 +225,7 @@ Apresentar ao estudante os fundamentos da computação, desde conceitos básicos
     └── 08-ia-generativa.md
 ```
 
-## Trilha de Aprendizagem (Como usar)
+## Como Usar Esta Trilha
 
 1. Comece pelo módulo teórico em `conteudo/` correspondente à semana.
 2. Faça o `checkpoint` da semana para validar o entendimento.
