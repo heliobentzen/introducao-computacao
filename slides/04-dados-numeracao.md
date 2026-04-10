@@ -43,7 +43,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# 🔢 Dados e Sistemas de Numeração
+# Dados e Sistemas de Numeração
 
 ---
 
@@ -53,7 +53,7 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 | Conceito | Definição |
 |----------|----------|
-| **Bit** | 0 ou 1 — menor unidade |
+| **Bit** | 0 ou 1, menor unidade |
 | **Byte** | 8 bits = 256 combinações |
 | **Palavra** | 32 ou 64 bits (largura da CPU) |
 
@@ -122,11 +122,11 @@ Representar −45 em 8 bits:
   +1 →  11010011  ← este é -45
 ```
 
-✅ Soma de positivo + negativo usa **o mesmo circuito** da ULA.
+- Soma de positivo + negativo usa **o mesmo circuito** da ULA.
 
 ---
 
-## IEEE 754 — Ponto Flutuante
+## IEEE 754: Ponto Flutuante
 
 32 bits (precisão simples):
 
@@ -140,13 +140,13 @@ Representar −45 em 8 bits:
 
 ---
 
-## Caso Real — Ariane 5 (1996)
+## Caso Real: Ariane 5 (1996)
 
-- 🚀 Foguete de **US$ 370 mi** explodiu em 37 segundos
-- 🐛 Causa: float 64-bit → int 16-bit = **overflow**
-- 📏 Velocidade excedeu 32.767 (máx de int16)
+- Foguete de **US$ 370 mi** explodiu em 37 segundos
+- Causa: float 64-bit → int 16-bit = **overflow**
+- Velocidade excedeu 32.767 (máx de int16)
 
-> Representação de dados não é detalhe — é **infraestrutura**.
+> Representação de dados não é detalhe, é **infraestrutura**.
 
 ---
 
@@ -154,11 +154,11 @@ Representar −45 em 8 bits:
 
 | Padrão | Bits | Cobertura |
 |--------|:----:|----------|
-| ASCII | 7 | 128 chars — inglês |
+| ASCII | 7 | 128 chars, inglês |
 | Unicode | variável | 155k+ chars, 168 scripts |
 | **UTF-8** | 1–4 bytes | Padrão da web |
 
-`"A"` = 1 byte · `"ç"` = 2 · `"漢"` = 3 · `"😀"` = 4
+`"A"` = 1 byte · `"ç"` = 2 · `"漢"` = 3 · `"emoji"` = 4
 
 ---
 
@@ -178,6 +178,6 @@ $$\text{Tamanho} = \text{taxa} \times \text{bits} \times \text{canais} \times \t
 
 - Shannon (1948). *A Mathematical Theory of Communication*
 - Goldberg (1991). *What Every CS Should Know About FP Arithmetic*
-- Unicode Consortium — unicode.org
+- Unicode Consortium: unicode.org
 
 **→ Checkpoint 02** · com módulo 03

@@ -43,18 +43,18 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# 🤖 Inteligência Artificial
+# Inteligência Artificial
 
 ---
 
 ## O Que É IA?
 
-> Sistema que percebe o ambiente e age para maximizar desempenho. — Russell & Norvig, 2021
+> Sistema que percebe o ambiente e age para maximizar desempenho. (Russell & Norvig, 2021)
 
 | | Como humanos | Racionalmente |
 |:-:|:---:|:---:|
-| 🧠 **Pensando** | Ciência cognitiva | Lógica formal |
-| 🏃 **Agindo** | Teste de Turing | **Agente racional** ← dominante |
+| **Pensando** | Ciência cognitiva | Lógica formal |
+| **Agindo** | Teste de Turing | **Agente racional** ← dominante |
 
 ---
 
@@ -62,11 +62,11 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 | Ano | Marco |
 |:---:|-------|
-| 1950 | Turing — "Máquinas podem pensar?" |
-| 1956 | Dartmouth — termo "AI" cunhado |
+| 1950 | Turing: "Máquinas podem pensar?" |
+| 1956 | Dartmouth: termo "AI" cunhado |
 | 1997 | Deep Blue vence Kasparov |
-| 2012 | AlexNet — Deep Learning domina visão |
-| 2017 | Transformer — *Attention Is All You Need* |
+| 2012 | AlexNet: Deep Learning domina visão |
+| 2017 | Transformer: *Attention Is All You Need* |
 | 2020+ | GPT-3 → ChatGPT → GPT-4 → Gemini |
 
 > *Invernos da IA:* 1974–80 e 1987–93 (euforia → decepção → corte de verba)
@@ -106,7 +106,7 @@ Dados → Pré-proc. → Treino → Modelo → Inferência
 | **MLP** | Dados tabulares |
 | **CNN** | Imagens, visão |
 | **RNN / LSTM** | Séries temporais |
-| **Transformer** | NLP, visão, multimodal — domina tudo |
+| **Transformer** | NLP, visão, multimodal, domina tudo |
 
 > **Backpropagation:** erro na saída é propagado de volta, ajustando pesos camada a camada.
 
@@ -138,7 +138,7 @@ Dados → Pré-proc. → Treino → Modelo → Inferência
 
 ## Viés Algorítmico
 
-- Reconhecimento facial: **erro 34.7% maior** para mulheres de pele escura — Buolamwini & Gebru, 2018
+- Reconhecimento facial: **erro 34.7% maior** para mulheres de pele escura (Buolamwini & Gebru, 2018)
 - Amazon: algoritmo de recrutamento penalizava termos femininos
 
 Mitigação: auditoria de dados · métricas de fairness · diversidade na equipe
@@ -149,10 +149,10 @@ Mitigação: auditoria de dados · métricas de fairness · diversidade na equip
 
 | Risco | Exemplo | Requisito |
 |:-----:|---------|----------|
-| 🚫 Inaceitável | Scoring social | Proibido |
-| 🔴 Alto | Diagnóstico médico | Transparência, auditoria |
-| 🟡 Limitado | Chatbots | Informar que é IA |
-| 🟢 Mínimo | Filtros de spam | Sem requisitos |
+| Inaceitável | Scoring social | Proibido |
+| Alto | Diagnóstico médico | Transparência, auditoria |
+| Limitado | Chatbots | Informar que é IA |
+| Mínimo | Filtros de spam | Sem requisitos |
 
 > Primeira legislação abrangente do mundo sobre IA.
 

@@ -45,13 +45,13 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# 🧠 Pensamento Computacional
+# Pensamento Computacional
 
 ---
 
 ## O que é Computação?
 
-> Ciência do **pensamento estruturado** aplicado à resolução de problemas — Aho & Ullman, 1992
+> Ciência do **pensamento estruturado** aplicado à resolução de problemas. (Aho & Ullman, 1992)
 
 - Não é "mexer no computador"
 - Estuda **algoritmos** e suas propriedades
@@ -61,20 +61,20 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-## Os 4 Pilares — Wing (2006)
+## Os 4 Pilares: Wing (2006)
 
 | Pilar | O que faz |
 |-------|----------|
-| 🧩 **Decomposição** | Divide o problema em partes menores |
-| 🔍 **Padrões** | Identifica regularidades |
-| 🎭 **Abstração** | Foca no essencial, ignora ruído |
-| 📋 **Algoritmos** | Define passos para a solução |
+| **Decomposição** | Divide o problema em partes menores |
+| **Padrões** | Identifica regularidades |
+| **Abstração** | Foca no essencial, ignora ruído |
+| **Algoritmos** | Define passos para a solução |
 
 > Se o problema parece impossível, *você não dividiu o suficiente*.
 
 ---
 
-## Pilar 1 — Decomposição
+## Pilar 1: Decomposição
 
 Quebrar um problema grande em **subproblemas gerenciáveis**.
 
@@ -85,19 +85,19 @@ Quebrar um problema grande em **subproblemas gerenciáveis**.
 
 ---
 
-## Pilar 2 — Reconhecimento de Padrões
+## Pilar 2: Reconhecimento de Padrões
 
 Encontrar **regularidades** entre problemas ou dados.
 
-- 🎵 Spotify — padrões no histórico → playlist
-- 🏦 Banco — padrões de transações → fraude
-- 🏥 Medicina — padrões de sintomas → diagnóstico
+- Spotify, padrões no histórico → playlist
+- Banco, padrões de transações → fraude
+- Medicina, padrões de sintomas → diagnóstico
 
 > Sem padrões → cada problema resolvido do zero.
 
 ---
 
-## Pilar 3 — Abstração
+## Pilar 3: Abstração
 
 Focar no **essencial**, descartar o irrelevante.
 
@@ -110,18 +110,18 @@ Focar no **essencial**, descartar o irrelevante.
 
 ---
 
-## Pilar 4 — Algoritmos
+## Pilar 4: Algoritmos
 
 Sequência **finita, ordenada e não-ambígua** de passos.
 
-✅ **Finitude** — termina em tempo finito
-✅ **Definitude** — cada passo é preciso
-✅ **Entrada/Saída** — recebe dados, produz resultado
-✅ **Efetividade** — cada passo é realizável
+- **Finitude**: termina em tempo finito
+- **Definitude**: cada passo é preciso
+- **Entrada/Saída**: recebe dados, produz resultado
+- **Efetividade**: cada passo é realizável
 
 ---
 
-## Existe Limite? — Problema da Parada
+## Existe Limite? O Problema da Parada
 
 **Turing (1936):** é impossível criar um programa que determine, para *qualquer* programa, se ele vai parar ou rodar para sempre.
 
@@ -135,14 +135,14 @@ Sequência **finita, ordenada e não-ambígua** de passos.
 
 ---
 
-## Na Prática — ADS
+## Na Prática: ADS
 
 | Pilar | Aplicação profissional |
-|:-----:|----------------------|
-| 🧩 | Quebrar requisitos em *user stories* |
-| 🔍 | Reutilizar *design patterns* |
-| 🎭 | Modelar APIs e interfaces |
-| 📋 | Implementar lógica de negócio |
+|-----------|----------------------|
+| Decomposição | Quebrar requisitos em *user stories* |
+| Padrões | Reutilizar *design patterns* |
+| Abstração | Modelar APIs e interfaces |
+| Algoritmos | Implementar lógica de negócio |
 
 ---
 

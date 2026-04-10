@@ -43,18 +43,18 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
-# 🐧 Sistemas Operacionais
+# Sistemas Operacionais
 
 ---
 
 ## O que é um SO?
 
-Interface entre **hardware** e **aplicações** — gerencia recursos de forma justa, segura e eficiente.
+Interface entre **hardware** e **aplicações**, gerencia recursos de forma justa, segura e eficiente.
 
 ```
   ┌─ Aplicações ──────────┐
   ├─ Bibliotecas / APIs ──┤
-  ├─ 🔲 Kernel ───────────┤  ← coração do SO
+  ├─ Kernel ─────────────┤  ← coração do SO
   └─ Hardware ────────────┘
 ```
 
@@ -66,13 +66,13 @@ Funções: processos · memória · arquivos · I/O · segurança
 
 | Tipo | Característica | Exemplo |
 |------|---------------|---------|
-| **Monolítico** | Tudo no kernel — rápido | Linux |
+| **Monolítico** | Tudo no kernel, rápido | Linux |
 | **Microkernel** | Mínimo no kernel | MINIX, QNX |
 | **Híbrido** | Meio-termo pragmático | Windows NT, macOS |
 
 ---
 
-## Processos — Ciclo de Vida
+## Processos: Ciclo de Vida
 
 ```
  [Novo] → [Pronto] → [Executando] → [Terminado]
@@ -82,9 +82,9 @@ Funções: processos · memória · arquivos · I/O · segurança
 
 | Estado | Significado |
 |--------|-----------|
-| 🟡 Pronto | Na fila, esperando CPU |
-| 🟢 Executando | Usando a CPU |
-| 🔴 Bloqueado | Esperando evento externo |
+| Pronto | Na fila, esperando CPU |
+| Executando | Usando a CPU |
+| Bloqueado | Esperando evento externo |
 
 ---
 
@@ -92,16 +92,16 @@ Funções: processos · memória · arquivos · I/O · segurança
 
 | Algoritmo | Preemptivo? | Problema |
 |-----------|:----------:|---------|
-| **FCFS** | ❌ | Convoy effect |
-| **SJF** | ❌ | Starvation |
-| **Round Robin** | ✅ | Troca de contexto |
-| **Prioridade** | ✅/❌ | Starvation (aging) |
+| **FCFS** | Não | Convoy effect |
+| **SJF** | Não | Starvation |
+| **Round Robin** | Sim | Troca de contexto |
+| **Prioridade** | Sim/Não | Starvation (aging) |
 
 > **Round Robin** (quantum fixo) é o mais usado em sistemas interativos.
 
 ---
 
-## Round Robin — Exemplo
+## Round Robin: Exemplo
 
 P1=8 · P2=4 · P3=2 · **quantum=4**
 
@@ -128,7 +128,7 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
       P1         →   [7]   →   Frame 7
 ```
 
-⚠️ **Page fault:** página fora da RAM → busca no disco → lento!
+**Page fault:** página fora da RAM → busca no disco → lento!
 
 ---
 
@@ -136,9 +136,9 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 | Algoritmo | Regra | Ótimo? |
 |-----------|-------|:------:|
-| **FIFO** | Remove a mais antiga | ❌ |
-| **LRU** | Menos recentemente usada | ≈ ✅ |
-| **Ótimo** | Usada mais tarde no futuro | 🏆 teórico |
+| **FIFO** | Remove a mais antiga | Não |
+| **LRU** | Menos recentemente usada | ≈ Sim |
+| **Ótimo** | Usada mais tarde no futuro | teórico |
 
 > **Anomalia de Bélády:** com FIFO, mais frames pode causar *mais* page faults!
 
@@ -148,14 +148,14 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 | FS | SO | Journaling | Máx. arquivo |
 |----|:--:|:----------:|:------------:|
-| ext4 | Linux | ✅ | 16 TB |
-| NTFS | Windows | ✅ | 16 EB |
-| APFS | macOS | ✅ | 8 EB |
-| FAT32 | Universal | ❌ | 4 GB |
+| ext4 | Linux | Sim | 16 TB |
+| NTFS | Windows | Sim | 16 EB |
+| APFS | macOS | Sim | 8 EB |
+| FAT32 | Universal | Não | 4 GB |
 
 ---
 
-## Terminal — Comandos Essenciais
+## Terminal: Comandos Essenciais
 
 | Comando | Ação |
 |---------|------|
