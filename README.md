@@ -24,6 +24,7 @@
 Apresentar ao estudante os fundamentos da computação, desde conceitos básicos até tecnologias contemporâneas como cloud computing e inteligência artificial, capacitando-o a compreender o ecossistema tecnológico atual e a utilizar ferramentas modernas com senso crítico.
 
 **Específicos:**
+
 - Compreender o conceito de pensamento computacional e sua aplicação na resolução de problemas  
 - Conhecer a evolução histórica dos computadores e os princípios da arquitetura de Von Neumann  
 - Realizar conversões entre sistemas de numeração e entender a representação interna de dados  
@@ -91,3 +92,63 @@ Apresentar ao estudante os fundamentos da computação, desde conceitos básicos
 - Problemas pessoais que afetem seu desempenho: converse com o professor antes da avaliação  
 
 ---
+
+## Estrutura Didática do Repositório
+
+```text
+.
+├── conteudo/
+│   ├── README.md
+│   ├── 01-fundamentos-pensamento-computacional.md
+│   ├── 02-logica-algoritmos-fluxo.md
+│   ├── 03-hardware-arquitetura.md
+│   ├── 04-dados-numeracao.md
+│   ├── 05-sistemas-operacionais.md
+│   ├── 06-cloud-computing.md
+│   ├── 07-inteligencia-artificial.md
+│   └── 08-ia-generativa-responsavel.md
+├── praticas/
+│   ├── README.md
+│   ├── checkpoints/
+│   │   ├── checkpoint-01.md   → Módulos 01 + 02
+│   │   ├── checkpoint-02.md   → Módulos 03 + 04
+│   │   ├── checkpoint-03.md   → Módulos 05 + 06
+│   │   └── checkpoint-04.md   → Módulos 07 + 08
+│   ├── desafios/
+│   │   ├── desafio-01-algoritmo-cotidiano.md   → Módulos 01–03
+│   │   ├── desafio-02-cloud-na-vida-real.md    → Módulos 04–06
+│   │   └── desafio-03-ia-com-cabeca.md         → Módulos 07–08
+│   └── projeto-integrador/
+│       ├── README.md
+│       ├── sprint-0-onboarding.md
+│       ├── sprint-1-modelagem.md
+│       ├── sprint-2-infraestrutura.md
+│       └── sprint-3-ia-pitch.md
+├── recursos/
+│   ├── guia-ferramentas.md
+│   ├── metodologias-ativas.md
+│   └── rubrica-avaliacao.md
+└── slides/
+    ├── 01-pensamento-computacional.md
+    ├── 02-logica-algoritmos.md
+    ├── 03-hardware-arquitetura.md
+    ├── 04-dados-numeracao.md
+    ├── 05-sistemas-operacionais.md
+    ├── 06-cloud-computing.md
+    ├── 07-inteligencia-artificial.md
+    └── 08-ia-generativa.md
+```
+
+## Trilha de Aprendizagem (Como usar)
+
+1. Comece pelo módulo teórico em `conteudo/` correspondente à semana.
+2. Faça o `checkpoint` da semana para validar o entendimento.
+3. Avance para um desafio em `praticas/desafios/`.
+4. Aplique o aprendizado no `projeto-integrador/` em sprints.
+5. Use os arquivos em `recursos/` para revisão, organização e melhoria contínua.
+
+## Proposta Pedagógica
+
+O material foi construído com referência em práticas modernas de ensino técnico e superior (universidades e plataformas de mercado), com linguagem acessível, abordagem mão na massa e foco em autonomia do estudante.
+
+Objetivo: transformar a disciplina de entrada em ADS no ponto de partida mais importante do curso.
