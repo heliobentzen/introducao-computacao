@@ -61,6 +61,20 @@ IFPE · Análise e Desenvolvimento de Sistemas
 
 ---
 
+## Contexto Histórico
+
+| Ano | Marco |
+|:---:|-------|
+| 1961 | McCarthy prevê "computação como utilidade" |
+| 2006 | AWS EC2: VMs sob demanda para qualquer empresa |
+| 2008 | Google App Engine (PaaS) |
+| 2014 | Kubernetes + AWS Lambda (serverless) |
+| 2024 | Mercado global: **US$ 500 bi/ano** |
+
+> 94% das empresas usam alguma forma de cloud (Flexera, 2024)
+
+---
+
 ## Modelos de Serviço
 
 | Modelo | Você gerencia | Exemplo |
@@ -71,6 +85,19 @@ IFPE · Análise e Desenvolvimento de Sistemas
 | **FaaS** | Só a função | Lambda, Functions |
 
 > Quanto mais *"aaS"*, menos controle, e menos responsabilidade infra.
+
+---
+
+## A Metáfora da Pizza
+
+| Cenário | Cloud | Você gerencia |
+|---------|-------|--------------|
+| Pizza em casa | On-premises | Tudo |
+| Pizza congelada | IaaS | App + SO + dados |
+| Delivery | PaaS | App + dados |
+| Restaurante | SaaS | Só consome |
+
+*Mais comodidade = menos controle = menos responsabilidade de infra*
 
 ---
 
@@ -146,6 +173,17 @@ Bancos NoSQL: geralmente sacrificam **C** para ganhar A + P.
 | Share | ~31% | ~25% | ~11% |
 | Forte | Amplitude | Enterprise | Data / ML |
 | Free | 12 meses | US$ 200 (estudante) | US$ 300 |
+
+---
+
+## Escalabilidade: Vertical vs Horizontal
+
+| Tipo | Como | Limite | Exemplo |
+|------|------|:------:|---------|
+| **Vertical** (scale-up) | Aumentar CPU/RAM da máquina | Hardware máximo | VM de 4 para 32 cores |
+| **Horizontal** (scale-out) | Adicionar mais máquinas | Praticamente ilimitado | 10 → 1000 VMs |
+
+> Cloud torna **escala horizontal** trivial — infraestrutura da Black Friday sem hardware próprio.
 
 ---
 

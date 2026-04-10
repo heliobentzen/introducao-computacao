@@ -91,6 +91,20 @@ Repete **bilhões** de vezes/segundo (GHz).
 
 ---
 
+## Registradores Essenciais
+
+| Registrador | Sigla | Função |
+|------------|:-----:|--------|
+| Program Counter | PC | Endereço da próxima instrução |
+| Instruction Register | IR | Instrução em execução |
+| Accumulator | ACC | Resultado temporário da ULA |
+| Memory Address Reg. | MAR | Endereço de memória acessado |
+| Memory Data Reg. | MDR | Dado sendo lido/escrito |
+
+*Memória ultra-rápida dentro da CPU — acesso em < 1 ns*
+
+---
+
 ## Von Neumann Bottleneck
 
 > CPU é mais rápida que o caminho até a memória. (Backus, 1978)
@@ -118,6 +132,31 @@ Repete **bilhões** de vezes/segundo (GHz).
 
 ---
 
+## Princípio da Localidade
+
+O cache é eficiente porque os dados têm padrão de acesso previsível:
+
+| Tipo | Conceito | Exemplo |
+|------|---------|---------|
+| **Temporal** | Dado usado agora → usado de novo em breve | Variável contador de loop |
+| **Espacial** | Dado em X acessado → X+1, X+2... em breve | Percorrer array sequencialmente |
+
+> Cache explora **ambos**: mantém dados recentes e carrega blocos contíguos.
+
+---
+
+## RAM: Tipos e Usos
+
+| Tipo | Característica | Uso |
+|------|---------------|-----|
+| **SRAM** (Static) | Mais rápida, cara, sem refresh | Cache L1/L2/L3 |
+| **DRAM** (Dynamic) | Mais lenta, barata, precisa refresh | Memória principal |
+| **DDR4/DDR5** | Evolução de DRAM, maior banda | PCs e servidores atuais |
+
+SRAM é ~5× mais rápida que DRAM, mas ocupa ~6× mais área de chip.
+
+---
+
 ## CISC vs RISC
 
 | Aspecto | CISC | RISC |
@@ -140,6 +179,19 @@ Repete **bilhões** de vezes/segundo (GHz).
 | Uso em IA | Pré-processamento | Treinamento de redes |
 
 > Deep Learning **não existiria** sem GPUs.
+
+---
+
+## Gargalos de Desempenho
+
+| Sintoma | Gargalo provável |
+|---------|-----------------|
+| Sistema lento para abrir apps | Armazenamento (HDD) |
+| Travamentos em multitarefa | RAM insuficiente / swap |
+| Lentidão em compilação | CPU saturada |
+| FPS baixo em jogos | GPU |
+
+**A falácia do "processador forte":** i9 + HDD + 8 GB RAM perde para i5 + SSD NVMe + 16 GB RAM no uso diário. O HDD é um Fórmula 1 numa estrada de terra.
 
 ---
 

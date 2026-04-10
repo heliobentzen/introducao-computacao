@@ -61,6 +61,26 @@ Pré-treino → Fine-tuning (RLHF) → Inferência (seu prompt)
 
 ---
 
+## Pipeline de um LLM
+
+```
+┌─────────────────┐
+│ 1. Pré-treino   │  Texto massivo → aprende padrões de linguagem
+│ (self-supervised)│  Tarefa: prever próximo token
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ 2. Fine-tuning  │  Dados curados → segue comandos
+│   (RLHF / SFT)  │  Reforço com feedback humano
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ 3. Inferência   │  Prompt → resposta token por token
+└─────────────────┘
+```
+
+---
+
 ## Escala dos Modelos
 
 | Modelo | Parâmetros | Ano |
@@ -71,6 +91,20 @@ Pré-treino → Fine-tuning (RLHF) → Inferência (seu prompt)
 | LLaMA 3 | 8 B – 405 B | 2024 |
 
 GPT-4 ≈ **US$ 100M** em computação para treinar.
+
+---
+
+## Custo e Impacto Ambiental
+
+Treinar um LLM de ponta:
+
+- Milhares de GPUs por semanas/meses
+- GPT-4: ~US$ 100M em computação
+- Emissão de CO₂ comparável a **voos transatlânticos**
+
+**Usar** (inferência) é muito mais barato, mas em escala de bilhões de usuários...
+
+> O custo ambiental da IA é tema de debate crescente.
 
 ---
 
@@ -85,6 +119,18 @@ LLMs processam **tokens**, não palavras.
 
 - Palavras comuns = 1 token · Raras = vários
 - Português usa **mais tokens** que inglês
+
+---
+
+## Tokens: Implicações Práticas
+
+- **Limite de contexto:** modelo só "vê" N tokens por vez
+  - GPT-4: ~128k tokens ≈ 200 páginas
+- **Custo:** APIs cobram por token (input + output)
+- **Idioma importa:** texto em inglês = menos tokens = mais barato e mais coerente
+- **Emojis e símbolos:** cada um pode ser vários tokens
+
+> Um prompt bem escrito é mais barato e gera respostas melhores.
 
 ---
 
