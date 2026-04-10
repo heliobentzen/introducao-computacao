@@ -1,5 +1,11 @@
 # 05 — Sistemas Operacionais Modernos
 
+← [Módulo 04](04-dados-numeracao.md) | **Módulo 05** | [Módulo 06 →](06-cloud-computing.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/05-sistemas-operacionais.md) · [Checkpoint 03](../praticas/checkpoints/checkpoint-03.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -49,6 +55,25 @@ Um sistema operacional (SO) é uma camada de software que **gerencia os recursos
 ├─────────────────────────────────┤
 │          Hardware               │  (CPU, RAM, disco, rede)
 └─────────────────────────────────┘
+```
+
+```mermaid
+graph TD
+    APP["🖥️ Aplicações\n(navegador, editor, terminal)"]
+    LIB["📦 Bibliotecas / APIs\n(libc, POSIX, Win32)"]
+    SYS["🔗 Syscalls\n(fronteira usuário ↔ kernel)"]
+    KERN["⚙️ Kernel\n(processos · memória · arquivos · E/S)"]
+    DRV["🔌 Drivers\n(comunicação com hardware)"]
+    HW["🔧 Hardware\n(CPU · RAM · disco · rede)"]
+
+    APP --> LIB --> SYS --> KERN --> DRV --> HW
+
+    style APP fill:#1565c0,color:#fff
+    style LIB fill:#0277bd,color:#fff
+    style SYS fill:#f57c00,color:#fff
+    style KERN fill:#c62828,color:#fff
+    style DRV fill:#558b2f,color:#fff
+    style HW fill:#37474f,color:#fff
 ```
 
 ### 1.3 Tipos de Kernel
@@ -336,3 +361,7 @@ O sistema operacional é a ponte entre o mundo físico do hardware e o mundo abs
 - THOMPSON, Ken; RITCHIE, Dennis M. The UNIX time-sharing system. *Communications of the ACM*, v. 17, n. 7, p. 365-375, 1974. Disponível em: <https://doi.org/10.1145/361011.361061>
 - OLIVEIRA, Rômulo S.; CARISSIMI, Alexandre S.; TOSCANI, Simão S. *Sistemas Operacionais*. 4. ed. Bookman (Série Livros Didáticos Informática UFRGS), 2010.
 - MAZIERO, Carlos. *Sistemas Operacionais: Conceitos e Mecanismos*. UFPR, 2019. Disponível em: <http://wiki.inf.ufpr.br/maziero/doku.php?id=socm:start>
+
+---
+
+← [Módulo 04](04-dados-numeracao.md) | **Módulo 05** | [Módulo 06 →](06-cloud-computing.md)

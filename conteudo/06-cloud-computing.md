@@ -1,5 +1,11 @@
 # 06 — Fundamentos de Cloud Computing
 
+← [Módulo 05](05-sistemas-operacionais.md) | **Módulo 06** | [Módulo 07 →](07-inteligencia-artificial.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/06-cloud-computing.md) · [Checkpoint 03](../praticas/checkpoints/checkpoint-03.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -51,6 +57,52 @@ Hoje o mercado global de cloud computing ultrapassa US$ 500 bilhões/ano (Gartne
 | Comprar pizza congelada | Alguém fez a massa e o molho; você assa e serve | **IaaS** |
 | Pedir delivery | Pizza pronta, você só escolhe e serve | **PaaS** |
 | Comer no restaurante | Tudo feito, você só consume | **SaaS** |
+
+```mermaid
+graph LR
+    subgraph "🏠 On-Premises"
+        OP_HW["Hardware"]
+        OP_NET["Rede"]
+        OP_VM["Virtualização"]
+        OP_OS["SO"]
+        OP_MID["Middleware"]
+        OP_RT["Runtime"]
+        OP_DB["Dados"]
+        OP_APP["Aplicação"]
+    end
+    subgraph "IaaS"
+        I_HW["☁️ Hardware"]
+        I_NET["☁️ Rede"]
+        I_VM["☁️ Virtualização"]
+        I_OS["👤 SO"]
+        I_MID["👤 Middleware"]
+        I_RT["👤 Runtime"]
+        I_DB["👤 Dados"]
+        I_APP["👤 Aplicação"]
+    end
+    subgraph "PaaS"
+        P_HW["☁️ Hardware"]
+        P_NET["☁️ Rede"]
+        P_VM["☁️ Virtualização"]
+        P_OS["☁️ SO"]
+        P_MID["☁️ Middleware"]
+        P_RT["☁️ Runtime"]
+        P_DB["👤 Dados"]
+        P_APP["👤 Aplicação"]
+    end
+    subgraph "SaaS"
+        S_HW["☁️ Hardware"]
+        S_NET["☁️ Rede"]
+        S_VM["☁️ Virtualização"]
+        S_OS["☁️ SO"]
+        S_MID["☁️ Middleware"]
+        S_RT["☁️ Runtime"]
+        S_DB["☁️ Dados"]
+        S_APP["☁️ Aplicação"]
+    end
+```
+
+> ☁️ = gerenciado pelo provedor · 👤 = responsabilidade do cliente
 
 ### 2.2 IaaS — Infrastructure as a Service
 
@@ -258,3 +310,7 @@ Cloud computing não é modismo — é a infraestrutura padrão do desenvolvimen
 - VELTE, Anthony T.; VELTE, Toby J.; ELSENPETER, Robert. *Cloud Computing: A Practical Approach*. McGraw-Hill, 2010.
 - AWS. *Shared Responsibility Model*. Disponível em: <https://aws.amazon.com/compliance/shared-responsibility-model/>
 - MANOEL, Sérgio da Silva. *Computação em Nuvem*. Brasport, 2015.
+
+---
+
+← [Módulo 05](05-sistemas-operacionais.md) | **Módulo 06** | [Módulo 07 →](07-inteligencia-artificial.md)

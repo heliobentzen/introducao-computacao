@@ -1,5 +1,11 @@
 # 02 — Lógica, Algoritmos e Estruturas de Controle de Fluxo
 
+← [Módulo 01](01-fundamentos-pensamento-computacional.md) | **Módulo 02** | [Módulo 03 →](03-hardware-arquitetura.md)
+
+> 📎 **Materiais relacionados:** [Slides](../slides/02-logica-algoritmos.md) · [Checkpoint 01](../praticas/checkpoints/checkpoint-01.md)
+
+---
+
 ## Objetivos de aprendizagem
 
 Ao final deste módulo o estudante será capaz de:
@@ -63,6 +69,25 @@ Exemplo prático: "NÃO (é aluno E está matriculado)" equivale a "NÃO é alun
 ---
 
 ## 2. Estruturas de Controle de Fluxo
+
+```mermaid
+flowchart TD
+    A([Início]) --> B[Instrução 1\nSequência]
+    B --> C[Instrução 2\nSequência]
+    C --> D{Condição?\nDecisão}
+    D -- Sim --> E[Bloco Verdadeiro]
+    D -- Não --> F[Bloco Alternativo]
+    E --> G{Repetir?\nIteração}
+    F --> G
+    G -- Ainda não --> H[Corpo do Loop]
+    H --> G
+    G -- Condição\natendida --> Z([Fim])
+
+    style A fill:#4CAF50,color:#fff
+    style Z fill:#2196F3,color:#fff
+    style D fill:#FF9800,color:#fff
+    style G fill:#FF9800,color:#fff
+```
 
 ### 2.1 Sequência
 
@@ -484,3 +509,7 @@ Programar não é decorar sintaxe. É **controlar fluxo de decisões com clareza
 - MYERS, Glenford J.; SANDLER, Corey; BADGETT, Tom. *The Art of Software Testing*. 3. ed. Wiley, 2011.
 - VYGOTSKY, Lev S. *Mind in Society: The Development of Higher Psychological Processes*. Harvard University Press, 1978.
 - ZELLER, Andreas. *Why Programs Fail: A Guide to Systematic Debugging*. 2. ed. Morgan Kaufmann, 2009.
+
+---
+
+← [Módulo 01](01-fundamentos-pensamento-computacional.md) | **Módulo 02** | [Módulo 03 →](03-hardware-arquitetura.md)

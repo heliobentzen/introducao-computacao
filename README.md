@@ -6,6 +6,60 @@
 
 ---
 
+## Navegação Rápida
+
+| Seção | Acesso |
+|-------|--------|
+| 📚 Conteúdo teórico | [conteudo/](conteudo/) |
+| 🧪 Práticas e checkpoints | [praticas/](praticas/) |
+| 🖥️ Slides (Marp) | [slides/](slides/) |
+| 🛠️ Recursos e ferramentas | [recursos/](recursos/) |
+
+---
+
+## Trilha de Aprendizagem
+
+```mermaid
+flowchart LR
+    A([🚀 Início]) --> M01
+    M01["📖 01 · Pensamento\nComputacional"] --> M02
+    M02["📖 02 · Lógica &\nAlgoritmos"] --> CP1{{"✅ Checkpoint 1"}}
+    CP1 --> M03
+    M03["📖 03 · Hardware &\nArquitetura"] --> M04
+    M04["📖 04 · Dados &\nNumeração"] --> CP2{{"✅ Checkpoint 2"}}
+    CP2 --> M05
+    M05["📖 05 · Sistemas\nOperacionais"] --> M06
+    M06["📖 06 · Cloud\nComputing"] --> CP3{{"✅ Checkpoint 3"}}
+    CP3 --> M07
+    M07["📖 07 · Inteligência\nArtificial"] --> M08
+    M08["📖 08 · IA Generativa\nResponsável"] --> CP4{{"✅ Checkpoint 4"}}
+    CP4 --> Z([🎓 Conclusão])
+
+    style A fill:#4CAF50,color:#fff
+    style Z fill:#2196F3,color:#fff
+    style CP1 fill:#FF9800,color:#fff
+    style CP2 fill:#FF9800,color:#fff
+    style CP3 fill:#FF9800,color:#fff
+    style CP4 fill:#FF9800,color:#fff
+```
+
+---
+
+## Módulos de Conteúdo
+
+| # | Módulo | Conteúdo | Slides | Checkpoint |
+|---|--------|---------|--------|-----------|
+| 01 | [Fundamentos e Pensamento Computacional](conteudo/01-fundamentos-pensamento-computacional.md) | Computação, 4 pilares, algoritmos, computabilidade | [Slides](slides/01-pensamento-computacional.md) | [CP 01](praticas/checkpoints/checkpoint-01.md) |
+| 02 | [Lógica, Algoritmos e Fluxo](conteudo/02-logica-algoritmos-fluxo.md) | Estruturas de controle, pseudocódigo, fluxogramas, teste de mesa | [Slides](slides/02-logica-algoritmos.md) | [CP 01](praticas/checkpoints/checkpoint-01.md) |
+| 03 | [Hardware e Arquitetura](conteudo/03-hardware-arquitetura.md) | Von Neumann, CPU, hierarquia de memória, CISC/RISC | [Slides](slides/03-hardware-arquitetura.md) | [CP 02](praticas/checkpoints/checkpoint-02.md) |
+| 04 | [Dados e Sistemas de Numeração](conteudo/04-dados-numeracao.md) | Binário, conversões, complemento de 2, IEEE 754, codificação | [Slides](slides/04-dados-numeracao.md) | [CP 02](praticas/checkpoints/checkpoint-02.md) |
+| 05 | [Sistemas Operacionais](conteudo/05-sistemas-operacionais.md) | Processos, escalonamento, memória virtual, terminal | [Slides](slides/05-sistemas-operacionais.md) | [CP 03](praticas/checkpoints/checkpoint-03.md) |
+| 06 | [Cloud Computing](conteudo/06-cloud-computing.md) | NIST, IaaS/PaaS/SaaS, nuvem híbrida, FinOps | [Slides](slides/06-cloud-computing.md) | [CP 03](praticas/checkpoints/checkpoint-03.md) |
+| 07 | [Inteligência Artificial](conteudo/07-inteligencia-artificial.md) | Paradigmas de IA, ML, Deep Learning, ética | [Slides](slides/07-inteligencia-artificial.md) | [CP 04](praticas/checkpoints/checkpoint-04.md) |
+| 08 | [IA Generativa Responsável](conteudo/08-ia-generativa-responsavel.md) | LLMs, prompt engineering, alucinação, uso ético | [Slides](slides/08-ia-generativa.md) | [CP 04](praticas/checkpoints/checkpoint-04.md) |
+
+---
+
 ## Ementa
 
 - Conceitos fundamentais e pensamento computacional  
