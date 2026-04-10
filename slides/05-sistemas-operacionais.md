@@ -2,176 +2,171 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #1a1a2e
-color: #eaeaea
 style: |
-  section { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-  h1 { color: #e94560; }
-  h2 { color: #fff; background: #e94560; padding: 4px 16px; border-radius: 4px; }
-  table { font-size: 0.78em; }
-  code { background: #16213e; color: #e94560; }
-  a { color: #00d2ff; }
-  blockquote { border-left: 4px solid #e94560; color: #ccc; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
+  h1 { color: #ff6b6b; font-size: 2.2em; }
+  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
+  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
+  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
+  td { background: rgba(255,255,255,0.04); }
+  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
+  pre code { color: #e8e8f0; background: none; }
+  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
+  a { color: #00d4ff; } img { border-radius: 10px; }
+  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
 ---
 
-# 05 — Sistemas Operacionais Modernos
+<!-- _class: lead -->
 
-**Introdução à Computação — ADS**
-A camada que faz o hardware servir ao software.
+# 🐧 Sistemas Operacionais
+
+**Introdução à Computação · ADS**
+
+*A camada que faz o hardware servir ao software*
+
+![bg right:40% brightness:0.6](https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&h=400&fit=crop)
 
 ---
 
-## O que é um Sistema Operacional?
+## 🎯 O que é um SO?
 
-> Interface entre hardware e aplicações. Gerencia recursos de forma justa, segura e eficiente.
+Interface entre **hardware** e **aplicações** — gerencia recursos de forma justa, segura e eficiente.
 
 ```
-  [Aplicações]     ← Onde você programa
-  [  Bibliotecas ] ← APIs, frameworks
-  [    Kernel    ] ← Coração do SO
-  [   Hardware   ] ← CPU, RAM, disco, rede
+  ┌─ Aplicações ──────────┐
+  ├─ Bibliotecas / APIs ──┤
+  ├─ 🔲 Kernel ───────────┤  ← coração do SO
+  └─ Hardware ────────────┘
 ```
 
-**Funções:** gerenciar processos, memória, sistema de arquivos, I/O e segurança.
+**Funções:** processos · memória · arquivos · I/O · segurança
 
 ---
 
-## Tipos de Kernel
+## 🧬 Tipos de Kernel
 
-| Tipo | Descrição | Exemplo |
-|------|----------|---------|
-| **Monolítico** | Tudo no kernel, rápido mas grande | Linux |
-| **Microkernel** | Mínimo no kernel, serviços em user space | MINIX, QNX |
-| **Híbrido** | Meio-termo pragmático | Windows NT, macOS (XNU) |
+| Tipo | Característica | Exemplo |
+|------|---------------|---------|
+| **Monolítico** | Tudo no kernel — rápido | Linux |
+| **Microkernel** | Mínimo no kernel | MINIX, QNX |
+| **Híbrido** | Meio-termo pragmático | Windows NT, macOS |
 
 ---
 
-## Processos — Ciclo de Vida
+## 🔄 Processos — Ciclo de Vida
 
 ```
-[Novo] → [Pronto] → [Executando] → [Terminado]
-              ↑            |
-              └── [Bloqueado] (esperando I/O)
+ [Novo] → [Pronto] → [Executando] → [Terminado]
+               ↑            │
+               └── [Bloqueado] ← esperando I/O
 ```
 
 | Estado | Significado |
 |--------|-----------|
-| Novo | Criado, aguardando admissão |
-| Pronto | Na fila, esperando CPU |
-| Executando | Usando a CPU agora |
-| Bloqueado | Esperando evento (I/O, recurso) |
-| Terminado | Execução concluída |
+| 🟡 Pronto | Na fila, esperando CPU |
+| 🟢 Executando | Usando a CPU agora |
+| 🔴 Bloqueado | Esperando evento externo |
 
 ---
 
-## Escalonamento de CPU
+## ⏱️ Escalonamento de CPU
 
-| Algoritmo | Preemptivo | Como funciona | Problema |
-|-----------|-----------|---------------|---------|
-| FCFS | Não | Primeiro a chegar | Convoy effect |
-| SJF | Não | Menor burst primeiro | Starvation |
-| Round Robin | Sim | Quantum fixo, reveza | Muita troca de contexto |
-| Prioridade | Sim/Não | Maior prioridade primeiro | Starvation (resolvível com aging) |
+| Algoritmo | Preemptivo? | Problema |
+|-----------|:----------:|---------|
+| **FCFS** | ❌ | Convoy effect |
+| **SJF** | ❌ | Starvation |
+| **Round Robin** | ✅ | Troca de contexto |
+| **Prioridade** | ✅/❌ | Starvation (aging) |
 
-**Round Robin (quantum=4):** o mais usado em sistemas interativos.
+> **Round Robin** (quantum fixo) é o mais usado em sistemas interativos.
 
 ---
 
-## Round Robin — Exemplo
+## 📊 Round Robin — Exemplo
 
-Processos: P1(burst=8), P2(burst=4), P3(burst=2), quantum=4
+P1=8 · P2=4 · P3=2 · **quantum=4**
 
 ```
-Gantt: |P1(4)|P2(4)|P3(2)|P1(4)|
-t:      0    4    8   10   14
+Gantt: │ P1(4) │ P2(4) │ P3(2) │ P1(4) │
+    t:  0       4       8      10      14
 ```
 
 | Processo | Espera | Turnaround |
-|----------|--------|-----------|
+|:--------:|:------:|:----------:|
 | P1 | 6 | 14 |
 | P2 | 4 | 8 |
 | P3 | 8 | 10 |
-| **Média** | **6.0** | **10.7** |
 
 ---
 
-## Gerenciamento de Memória — Paginação
+## 📄 Paginação de Memória
 
 Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 ```
-Página Virtual → Tabela de Páginas → Frame Físico
-    P0         →      [3]         →    Frame 3
-    P1         →      [7]         →    Frame 7
-    P2         →      [1]         →    Frame 1
+ Página Virtual  →  Tabela  →  Frame Físico
+      P0         →   [3]   →   Frame 3
+      P1         →   [7]   →   Frame 7
 ```
 
-**Page fault:** página não está na RAM → buscar no disco → lento!
+⚠️ **Page fault:** página fora da RAM → busca no disco → lento!
 
 ---
 
-## Algoritmos de Substituição de Página
+## 🔃 Substituição de Página
 
-| Algoritmo | Regra | Optimal? |
-|-----------|-------|----------|
-| **FIFO** | Remove a mais antiga | Não (anomalia de Bélády) |
-| **LRU** | Remove a menos recentemente usada | Próximo do ótimo |
-| **Ótimo** | Remove a que será usada mais tarde no futuro | Impossível (teórico) |
+| Algoritmo | Regra | Ótimo? |
+|-----------|-------|:------:|
+| **FIFO** | Remove a mais antiga | ❌ |
+| **LRU** | Menos recentemente usada | ≈ ✅ |
+| **Ótimo** | Usada mais tarde no futuro | 🏆 teórico |
 
-**Anomalia de Bélády:** com FIFO, mais frames pode causar MAIS page faults!
-
----
-
-## Sistema de Arquivos
-
-| Sistema | SO | Journaling | Tamanho máx. arquivo |
-|---------|-----|-----------|---------------------|
-| ext4 | Linux | Sim | 16 TB |
-| NTFS | Windows | Sim | 16 EB |
-| APFS | macOS | Sim | 8 EB |
-| FAT32 | Universal | Não | 4 GB |
-
-**Journaling:** registra operações antes de executar → protege contra corrupção em queda de energia.
+> 🐛 **Anomalia de Bélády:** com FIFO, mais frames pode causar *mais* page faults!
 
 ---
 
-## Terminal — Comandos Essenciais
+## 📂 Sistemas de Arquivos
 
-| Comando | O que faz |
-|---------|----------|
+| FS | SO | Journaling | Máx. arquivo |
+|----|:--:|:----------:|:------------:|
+| ext4 | Linux | ✅ | 16 TB |
+| NTFS | Windows | ✅ | 16 EB |
+| APFS | macOS | ✅ | 8 EB |
+| FAT32 | Universal | ❌ | 4 GB |
+
+---
+
+## 💻 Terminal — Comandos Essenciais
+
+| Comando | Ação |
+|---------|------|
 | `pwd` | Onde estou |
 | `ls -la` | Listar com detalhes |
-| `cd`, `mkdir`, `rm` | Navegar e gerenciar |
-| `cat`, `head`, `tail` | Ver conteúdo |
-| `grep "texto" arquivo` | Buscar |
-| `chmod 755 script.sh` | Alterar permissões |
-| `ps aux \| grep java` | Pipeline: processos filtrados |
+| `cd` · `mkdir` · `rm` | Navegar / gerenciar |
+| `grep "x" arq` | Buscar texto |
+| `chmod 755 script.sh` | Permissões |
 
 ---
 
-## Permissões Unix — Conexão com Octal
+## 🔐 Permissões Unix → Octal
 
 ```
-rwxr-xr-- = 754₈
+  rwx  r-x  r--  =  754₈
 ```
 
 | Dono (rwx) | Grupo (r-x) | Outros (r--) |
-|-----------|-------------|-------------|
+|:----------:|:-----------:|:------------:|
 | 4+2+1 = **7** | 4+0+1 = **5** | 4+0+0 = **4** |
 
-**Módulo 04 em ação:** permissões usam representação octal direta!
+> 🔗 **Módulo 04 em ação:** permissões usam octal diretamente!
 
 ---
 
-## Referências-chave
+## 📚 Referências
 
-- Tanenbaum, A. (2015). *Modern Operating Systems* (4ª ed.)
-- Silberschatz et al. (2018). *Operating System Concepts* (10ª ed.)
-- Maziero, C. (2019). *Sistemas Operacionais: Conceitos e Mecanismos* (open access)
+- Tanenbaum (2015). *Modern Operating Systems*, 4ª ed.
+- Silberschatz et al. (2018). *OS Concepts*, 10ª ed.
+- Maziero (2019). *Sistemas Operacionais* (open access)
 
----
-
-## Checkpoint
-
-**→ Checkpoint 03** (com módulo 06)
-Escalonamento Round Robin, paginação FIFO/LRU, comandos de terminal, modelos cloud.
+**→ Checkpoint 03** · com módulo 06

@@ -2,183 +2,180 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #1a1a2e
-color: #eaeaea
 style: |
-  section { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-  h1 { color: #e94560; }
-  h2 { color: #fff; background: #e94560; padding: 4px 16px; border-radius: 4px; }
-  table { font-size: 0.78em; }
-  code { background: #16213e; color: #e94560; }
-  a { color: #00d2ff; }
-  blockquote { border-left: 4px solid #e94560; color: #ccc; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
+  h1 { color: #ff6b6b; font-size: 2.2em; }
+  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
+  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
+  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
+  td { background: rgba(255,255,255,0.04); }
+  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
+  pre code { color: #e8e8f0; background: none; }
+  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
+  a { color: #00d4ff; } img { border-radius: 10px; }
+  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
 ---
 
-# 08 — IA Generativa e Uso Responsável
+<!-- _class: lead -->
 
-**Introdução à Computação — ADS**
-Entender a ferramenta. Verificar o resultado. Construir competência real.
+# ✨ IA Generativa e Uso Responsável
+
+**Introdução à Computação · ADS**
+
+*Entender a ferramenta · Verificar o resultado · Construir competência real*
+
+![bg right:40% brightness:0.5](https://images.unsplash.com/photo-1684391962444-1048e55babfa?w=600&h=400&fit=crop)
 
 ---
 
-## Como LLMs Funcionam
+## 🔮 Como LLMs Funcionam
 
-> Rede neural Transformer treinada em texto massivo para **prever o próximo token**.
+> Rede Transformer treinada em texto massivo para **prever o próximo token**.
 
-Não é busca em banco de dados.
-Não "sabe" o que é verdade.
-Gera texto que **parece** plausível.
+- ❌ Não é busca em banco de dados
+- ❌ Não "sabe" o que é verdade
+- ✅ Gera texto que **parece** plausível
 
 ```
-Pré-treino (self-supervised)
-    → Fine-tuning (RLHF)
-        → Inferência (seu prompt)
+Pré-treino → Fine-tuning (RLHF) → Inferência (seu prompt)
 ```
 
 ---
 
-## Escala dos Modelos
+## 📏 Escala dos Modelos
 
 | Modelo | Parâmetros | Ano |
-|--------|-----------|-----|
-| GPT-2 | 1.5 bilhão | 2019 |
-| GPT-3 | 175 bilhões | 2020 |
-| GPT-4 | >1 trilhão (estimado) | 2023 |
-| LLaMA 3 | 8B–405B | 2024 |
+|--------|:---------:|:---:|
+| GPT-2 | 1.5 B | 2019 |
+| GPT-3 | 175 B | 2020 |
+| GPT-4 | >1 T (est.) | 2023 |
+| LLaMA 3 | 8 B – 405 B | 2024 |
 
-**Custo:** GPT-4 ≈ US$ 100M em computação para treinar.
-**Impacto ambiental:** consumo de energia é debate crescente.
+💸 GPT-4 ≈ **US$ 100M** em computação
+🌍 Consumo de energia: debate crescente
 
 ---
 
-## Tokenização
+## 🧩 Tokenização
 
-LLMs não processam palavras — processam **tokens** (pedaços de texto).
+LLMs processam **tokens**, não palavras.
 
 | Texto | Tokens |
 |-------|--------|
-| "Computação" | ["Comput", "ação"] |
-| "Hello world" | ["Hello", " world"] |
+| "Computação" | `["Comput", "ação"]` |
+| "Hello world" | `["Hello", " world"]` |
 
-Palavras comuns = 1 token. Palavras raras = vários tokens.
-Português geralmente usa **mais tokens** que inglês para o mesmo conteúdo.
-
----
-
-## Alucinação — O Problema Central
-
-> Modelo gera informação **factualmente incorreta com aparência confiável**.
-
-**Casos reais:**
-
-- Advogados citaram casos jurídicos que **não existiam** (Mata v. Avianca, 2023)
-- Referências bibliográficas inventadas com DOI fictício
-- Recomendações médicas plausíveis mas clinicamente incorretas
-
-**Causa:** otimiza **coerência textual**, não **veracidade**.
+- Palavras comuns = 1 token
+- Palavras raras = vários tokens
+- 🇧🇷 Português usa **mais tokens** que inglês
 
 ---
 
-## Engenharia de Prompt
+## 👻 Alucinação — O Problema Central
+
+> Modelo gera informação **incorreta com aparência confiável**.
+
+| Caso | O que aconteceu |
+|------|----------------|
+| ⚖️ Mata v. Avianca (2023) | Advogados citaram casos que **não existiam** |
+| 📖 Referências acadêmicas | DOIs e artigos **inventados** |
+| 🏥 Recomendações médicas | Plausíveis mas clinicamente erradas |
+
+**Causa:** otimiza *coerência textual*, não *veracidade*.
+
+---
+
+## 🎯 Engenharia de Prompt
 
 | Componente | Função |
-|-----------|--------|
-| **Role** | Persona do modelo |
-| **Context** | Informação de fundo |
-| **Task** | O que você quer |
-| **Format** | Estrutura da resposta |
-| **Constraints** | Limites e condições |
+|:----------:|--------|
+| 🎭 **Role** | Persona do modelo |
+| 📋 **Context** | Informação de fundo |
+| ✅ **Task** | O que você quer |
+| 📐 **Format** | Estrutura da resposta |
+| 🚫 **Constraints** | Limites e condições |
 
 ---
 
-## Técnicas de Prompting
+## 🧪 Técnicas de Prompting
 
 | Técnica | Descrição |
 |---------|----------|
-| **Zero-shot** | Pergunta direta, sem exemplos |
-| **Few-shot** | Fornece exemplos antes (Brown et al., 2020) |
-| **Chain-of-Thought** | Pede raciocínio passo a passo (Wei et al., 2022) |
-| **Self-consistency** | Gera múltiplas respostas, seleciona mais frequente |
-| **Tree of Thoughts** | Explora múltiplos caminhos de raciocínio |
+| **Zero-shot** | Pergunta direta |
+| **Few-shot** | Fornece exemplos antes |
+| **Chain-of-Thought** | Passo a passo (Wei, 2022) |
+| **Self-consistency** | Múltiplas respostas → mais frequente |
 
 ---
 
-## Prompt Ruim vs. Bom
+## ❌ Prompt Ruim vs ✅ Bom
 
-| ❌ Ruim | ✅ Melhor |
-|---------|----------|
-| "Me fala de cloud" | "Explique IaaS, PaaS e SaaS com exemplo prático cada, para iniciante de ADS" |
-| "Faz um código bom" | "Função Python: recebe lista de notas, retorna média/max/min com validação" |
-| "Tá certo isso?" | "Avalie esta definição de processo em SO: [definição]. Está correto? Se não, corrija" |
-
----
-
-## Framework FACT
-
-Avalie toda resposta de IA:
-
-| Critério | Pergunta |
-|----------|---------|
-| **F**actual | A informação é verídica e verificável? |
-| **A**tualidade | Está atualizado? (data de corte) |
-| **C**ompletude | Cobre o que foi pedido? |
-| **T**écnica | Terminologia correta? |
-
-**Red flags:** confiança excessiva, citações desconhecidas, números "perfeitos demais".
+| ❌ | ✅ |
+|---|---|
+| "Me fala de cloud" | "Explique IaaS, PaaS, SaaS com exemplo para iniciante ADS" |
+| "Faz um código bom" | "Função Python: lista de notas → média/max/min com validação" |
+| "Tá certo isso?" | "Avalie esta definição de processo em SO: [def]. Corrija se necessário" |
 
 ---
 
-## IA no Aprendizado — Regra Feynman
+## ✅ Framework FACT
 
-1. Estude o tema (com ou sem IA)
-2. **Feche tudo** e explique com suas palavras
-3. Travou? Volte ao material **naquele ponto**
-4. Repita até explicar fluentemente
+Avalie **toda** resposta de IA:
 
-> Se não consegue explicar sem consultar a resposta, não aprendeu — apenas leu.
+| Letra | Pergunta-chave |
+|:-----:|---------------|
+| **F** | A informação é *verificável*? |
+| **A** | Está *atualizada*? (data de corte) |
+| **C** | Cobre o que foi *pedido*? |
+| **T** | Terminologia *correta*? |
+
+🚩 **Red flags:** confiança excessiva · citações desconhecidas · números perfeitos demais
 
 ---
 
-## Política de IA na Disciplina
+## 📖 Regra Feynman p/ Aprender com IA
+
+1️⃣ Estude o tema (com ou sem IA)
+2️⃣ **Feche tudo** e explique com suas palavras
+3️⃣ Travou? Volte ao material **naquele ponto**
+4️⃣ Repita até explicar fluentemente
+
+> Se não consegue explicar sem consultar, **não aprendeu** — apenas leu.
+
+---
+
+## 📜 Política de IA na Disciplina
 
 | Uso | OK? |
-|-----|-----|
-| Entender conceito | ✅ Sim |
-| Gerar exercícios para praticar | ✅ Sim |
-| Revisar seu texto/código | ✅ Sim (cite) |
+|-----|:---:|
+| Entender conceito | ✅ |
+| Gerar exercícios para praticar | ✅ |
+| Revisar seu texto/código | ✅ (cite) |
 | Submeter output como trabalho | ❌ Fraude |
-| Usar sem verificar informações | ⚠️ Risco |
-
-**Sempre citar** quando IA contribuiu significativamente.
+| Usar sem verificar | ⚠️ Risco |
 
 ---
 
-## Ecossistema de Ferramentas
+## 🧰 Ecossistema de Ferramentas
 
 | Categoria | Exemplos |
 |-----------|---------|
-| Chat LLM | ChatGPT, Claude, Gemini |
-| Code assistant | Copilot, Codeium, Cursor |
-| Imagem | DALL-E, Midjourney, Stable Diffusion |
-| Busca com RAG | Perplexity, Gemini grounded |
-| Open source | LLaMA, Mistral, Phi (Ollama) |
+| 💬 Chat LLM | ChatGPT, Claude, Gemini |
+| ✍️ Code | Copilot, Codeium, Cursor |
+| 🖼️ Imagem | DALL-E, Midjourney, SD |
+| 🔎 Busca RAG | Perplexity, Gemini |
+| 🔓 Open source | LLaMA, Mistral, Phi |
 
 ---
 
-## Referências-chave
+## 🎯 Síntese
 
-- Vaswani et al. (2017). Attention Is All You Need
-- Brown et al. (2020). Language Models Are Few-Shot Learners
-- Wei et al. (2022). Chain-of-Thought Prompting
-- Ouyang et al. (2022). Training LMs with Human Feedback
-- Bender et al. (2021). On the Dangers of Stochastic Parrots
+A meta não é ser bom em **usar** IA.
+É ser bom **com ou sem** IA.
 
----
+> *A IA é uma ferramenta poderosa. Seu cérebro é insubstituível.*
 
-## Síntese
+**→ Checkpoint 04** · com módulo 07
 
-A meta não é que você seja bom em usar IA.
-É que você seja bom **com ou sem** IA.
-
-**→ Checkpoint 04** (com módulo 07)
-Prompt engineering comparativo, caça às alucinações, produção autoral verificada.
+![bg right:30% opacity:0.15](https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&fit=crop)

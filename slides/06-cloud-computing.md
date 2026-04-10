@@ -2,141 +2,141 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #1a1a2e
-color: #eaeaea
 style: |
-  section { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-  h1 { color: #e94560; }
-  h2 { color: #fff; background: #e94560; padding: 4px 16px; border-radius: 4px; }
-  table { font-size: 0.78em; }
-  code { background: #16213e; color: #e94560; }
-  a { color: #00d2ff; }
-  blockquote { border-left: 4px solid #e94560; color: #ccc; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
+  h1 { color: #ff6b6b; font-size: 2.2em; }
+  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
+  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
+  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
+  td { background: rgba(255,255,255,0.04); }
+  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
+  pre code { color: #e8e8f0; background: none; }
+  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
+  a { color: #00d4ff; } img { border-radius: 10px; }
+  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
 ---
 
-# 06 — Cloud Computing
+<!-- _class: lead -->
 
-**Introdução à Computação — ADS**
-Computação sob demanda: da sala do servidor ao mundo.
+# ☁️ Cloud Computing
 
----
+**Introdução à Computação · ADS**
 
-## Definição NIST
+*Computação sob demanda: da sala do servidor ao mundo*
 
-> Modelo que permite acesso sob demanda a um pool compartilhado de recursos computacionais configuráveis, provisionados e liberados com mínimo esforço de gerenciamento. — Mell & Grance (2011)
-
-**5 características essenciais:**
-
-1. Self-service sob demanda
-2. Acesso amplo pela rede
-3. Pool de recursos compartilhado
-4. Elasticidade rápida
-5. Serviço medido (pay-as-you-go)
+![bg right:40% brightness:0.5](https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop)
 
 ---
 
-## Modelos de Serviço
+## 📖 Definição NIST
 
-| Modelo | Você gerencia | Provedor gerencia | Exemplo |
-|--------|-------------|-------------------|---------|
-| **IaaS** | App, dados, runtime, SO | Hardware, rede, virtualização | AWS EC2, Azure VM |
-| **PaaS** | App e dados | Todo o resto | Heroku, Azure App Service |
-| **SaaS** | Apenas usa | Tudo | Gmail, Office 365, Salesforce |
-| **FaaS** | Função (código) | Todo o resto | AWS Lambda, Azure Functions |
+> Acesso **sob demanda** a um pool compartilhado de recursos computacionais. — Mell & Grance, 2011
 
-**Regra:** quanto mais "as a Service", menos você gerencia (e menos controle tem).
+| # | Característica |
+|:-:|---------------|
+| 1️⃣ | Self-service sob demanda |
+| 2️⃣ | Acesso amplo pela rede |
+| 3️⃣ | Pool de recursos compartilhado |
+| 4️⃣ | Elasticidade rápida |
+| 5️⃣ | Pay-as-you-go |
 
 ---
 
-## Modelos de Implantação
+## 🧱 Modelos de Serviço
+
+| Modelo | Você gerencia | Exemplo |
+|--------|:------------:|---------|
+| **IaaS** | App + SO + runtime | EC2, Azure VM |
+| **PaaS** | App + dados | Heroku, App Service |
+| **SaaS** | Apenas usa | Gmail, Office 365 |
+| **FaaS** | Só a função | Lambda, Functions |
+
+> Quanto mais *"aaS"*, menos controle — e menos responsabilidade infra.
+
+---
+
+## 🌐 Modelos de Implantação
 
 | Modelo | Quem usa | Exemplo |
 |--------|---------|---------|
-| **Pública** | Qualquer organização | AWS, Azure, GCP |
-| **Privada** | Uma organização (próprio datacenter ou dedicado) | OpenStack, VMware |
-| **Híbrida** | Combina pública + privada | Maioria das grandes empresas |
-| **Multi-cloud** | Vários provedores públicos | Netflix (AWS + GCP) |
+| ☁️ **Pública** | Qualquer org. | AWS, Azure, GCP |
+| 🏢 **Privada** | Apenas uma org. | OpenStack |
+| 🔀 **Híbrida** | Pública + Privada | Maioria enterprise |
+| 🌈 **Multi-cloud** | Vários provedores | Netflix |
 
 ---
 
-## Responsabilidade Compartilhada
+## 🛡️ Responsabilidade Compartilhada
 
 | Camada | IaaS | PaaS | SaaS |
-|--------|------|------|------|
-| Hardware / Rede | Provedor | Provedor | Provedor |
-| SO | **Cliente** | Provedor | Provedor |
-| Runtime | **Cliente** | Provedor | Provedor |
-| Aplicação | **Cliente** | **Cliente** | Provedor |
-| Dados | **Cliente** | **Cliente** | **Cliente** |
-| Acesso / Identidade | **Cliente** | **Cliente** | **Cliente** |
+|--------|:----:|:----:|:----:|
+| Hardware / Rede | ☁️ | ☁️ | ☁️ |
+| SO / Runtime | **🔑 Você** | ☁️ | ☁️ |
+| Aplicação | **🔑 Você** | **🔑 Você** | ☁️ |
+| Dados + Identidade | **🔑 Você** | **🔑 Você** | **🔑 Você** |
 
-**Regra de ouro:** seus dados e identidades são SEMPRE sua responsabilidade.
+> 🔒 Seus dados e identidades são **sempre** sua responsabilidade.
 
 ---
 
-## SLA — Disponibilidade
+## 📈 SLA — Disponibilidade
 
-| SLA | Downtime/ano | Downtime/mês |
-|-----|-------------|-------------|
-| 99% | 3.65 dias | 7.3 horas |
-| 99.9% | 8.76 horas | 43.8 min |
-| 99.95% | 4.38 horas | 21.9 min |
+| SLA | Downtime / ano | Downtime / mês |
+|:---:|:--------------:|:--------------:|
+| 99% | 3.65 dias | 7.3 h |
+| 99.9% | 8.76 h | 43.8 min |
 | 99.99% | 52.6 min | 4.4 min |
-| 99.999% | 5.26 min | 26.3 seg |
+| 99.999% | 5.26 min | 26.3 s |
 
-**Combinando 2 zonas (99.95% cada):**
-$$A_{total} = 1 - (1 - 0.9995)^2 = 99.9999\%$$
-
----
-
-## CAP Theorem
-
-> Em sistema distribuído, é impossível garantir simultaneamente (Brewer, 2000):
-
-| Propriedade | Significado |
-|------------|-----------|
-| **C**onsistência | Toda leitura retorna o dado mais recente |
-| **A**vailability | Toda requisição recebe resposta |
-| **P**artition tolerance | Sistema funciona mesmo com falha de rede |
-
-**Na prática:** sistemas escolhem 2 de 3. Bancos de dados NoSQL tipicamente sacrificam C para ganhar A+P.
+**2 zonas 99.95% cada:**
+$$A = 1 - (1 - 0{,}9995)^2 = 99{,}9999\%$$
 
 ---
 
-## FinOps — Custo na Nuvem
+## 🔺 Teorema CAP
 
-| Modelo de preço | Economia | Compromisso |
-|----------------|----------|------------|
-| On-demand | 0% (baseline) | Nenhum |
-| Reserved (1 ano) | ~30-40% | Pagar adiantado |
-| Reserved (3 anos) | ~50-60% | Longo prazo |
-| Spot/Preemptive | ~70-90% | Pode ser interrompido |
+> Em sistema distribuído, escolha **2 de 3** — Brewer, 2000
 
-**Armadilha:** cloud parece barata, mas sem controle os custos explodem.
-→ FinOps = disciplina de gestão financeira de cloud.
+| Letra | Propriedade |
+|:-----:|------------|
+| **C** | Consistência — leitura mais recente |
+| **A** | Disponibilidade — sempre responde |
+| **P** | Tolerância a partição — funciona com falha de rede |
 
----
-
-## Provedores — Big Three
-
-| Aspecto | AWS | Azure | GCP |
-|---------|-----|-------|-----|
-| Market share | ~31% | ~25% | ~11% |
-| Forte em | Amplitude de serviços | Enterprise / Microsoft stack | Data analytics, ML |
-| Free tier | 12 meses | US$ 200 crédito (estudante) | US$ 300 crédito |
+🗃️ Bancos NoSQL: geralmente sacrificam **C** para ganhar **A + P**.
 
 ---
 
-## Referências-chave
+## 💰 FinOps — Custo na Nuvem
 
-- Mell & Grance (2011). The NIST Definition of Cloud Computing
-- Brewer (2000). Towards Robust Distributed Systems (CAP)
-- Marinescu (2022). *Cloud Computing: Theory and Practice* (4ª ed.)
-- FinOps Foundation. [finops.org](https://finops.org)
+| Modelo de preço | Economia | Risco |
+|----------------|:--------:|-------|
+| On-demand | 0% | Nenhum |
+| Reserved 1 ano | ~35% | Compromisso |
+| Reserved 3 anos | ~55% | Longo prazo |
+| Spot | ~70-90% | Interrupção |
+
+> ⚠️ Cloud *parece* barata, mas sem controle os custos **explodem**.
 
 ---
 
-## Checkpoint
+## 🏆 Big Three
 
-**→ Checkpoint 03** (com módulo 05)
-Modelos de serviço, SLA, responsabilidade compartilhada, cálculo de custo.
+| | AWS | Azure | GCP |
+|:-:|:---:|:-----:|:---:|
+| 📊 Share | ~31% | ~25% | ~11% |
+| 💪 Forte | Amplitude | Enterprise | Data / ML |
+| 🆓 Free | 12 meses | US$ 200 (estudante) | US$ 300 |
+
+![bg right:25% opacity:0.15](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&fit=crop)
+
+---
+
+## 📚 Referências
+
+- Mell & Grance (2011). *NIST Definition of Cloud Computing*
+- Brewer (2000). *Towards Robust Distributed Systems*
+- Marinescu (2022). *Cloud Computing*, 4ª ed.
+
+**→ Checkpoint 03** · com módulo 05

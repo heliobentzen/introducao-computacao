@@ -2,150 +2,136 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #1a1a2e
-color: #eaeaea
 style: |
-  section { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-  h1 { color: #e94560; }
-  h2 { color: #fff; background: #e94560; padding: 4px 16px; border-radius: 4px; }
-  table { font-size: 0.78em; }
-  code { background: #16213e; color: #e94560; }
-  a { color: #00d2ff; }
-  blockquote { border-left: 4px solid #e94560; color: #ccc; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
+  h1 { color: #ff6b6b; font-size: 2.2em; }
+  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
+  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
+  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
+  td { background: rgba(255,255,255,0.04); }
+  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
+  pre code { color: #e8e8f0; background: none; }
+  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
+  a { color: #00d4ff; } img { border-radius: 10px; }
+  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
 ---
 
-# 03 — Hardware e Arquitetura de Computadores
+<!-- _class: lead -->
 
-**Introdução à Computação — ADS**
-Do silício ao software: como a máquina funciona.
+# 🖥️ Hardware e Arquitetura
 
----
+**Introdução à Computação · ADS**
 
-## 5 Gerações de Computadores
+*Do silício ao software: como a máquina funciona*
 
-| Geração | Período | Tecnologia | Exemplo |
-|---------|---------|-----------|---------|
-| 1ª | 1940–1956 | Válvulas | ENIAC (30 ton, 18.000 válvulas) |
-| 2ª | 1956–1963 | Transistores | IBM 7094 |
-| 3ª | 1963–1971 | Circuitos integrados | IBM System/360 |
-| 4ª | 1971–2010 | Microprocessadores | Intel 4004 → Core i7 |
-| 5ª | 2010+ | IA, quântico, paralelo | GPUs, TPUs, QPUs |
+![bg right:40% brightness:0.6](https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop)
 
 ---
 
-## Arquitetura de Von Neumann
+## 📜 5 Gerações de Computadores
+
+| Geração | Tecnologia | Marco |
+|:-------:|-----------|-------|
+| 1️⃣ 1940s | Válvulas | ENIAC — 30 ton |
+| 2️⃣ 1950s | Transistores | IBM 7094 |
+| 3️⃣ 1960s | Circuitos integrados | IBM System/360 |
+| 4️⃣ 1970s+ | Microprocessadores | Intel 4004 → Core |
+| 5️⃣ 2010s+ | IA · Quântico · Paralelo | GPUs · TPUs · QPUs |
+
+---
+
+## 🏗️ Arquitetura de Von Neumann
 
 ```
-┌─────────────────────────────────────┐
-│              CPU                     │
-│  ┌──────────┐  ┌──────────────┐     │
-│  │    UC     │  │    ULA       │     │
-│  │ (controle)│  │ (aritmética) │     │
-│  └──────────┘  └──────────────┘     │
-│       ┌────────────────┐            │
-│       │  Registradores │            │
-│       └────────────────┘            │
-└──────────────┬──────────────────────┘
-               │ Barramento
-┌──────────────┴──────────────────────┐
-│         Memória Principal            │
-│    (dados + instruções juntos)       │
-└─────────────────────────────────────┘
-               │ I/O
-         [Dispositivos]
+ ┌──────────── CPU ─────────────┐
+ │  UC (controle)    ULA (cálculo) │
+ │       Registradores             │
+ └─────────────┬───────────────┘
+           Barramento
+ ┌─────────────┴───────────────┐
+ │    Memória Principal         │
+ │  (dados + instruções juntos) │
+ └─────────────┬───────────────┘
+          [Dispositivos I/O]
 ```
 
-**Princípio:** programa armazenado na mesma memória que os dados.
+> **Princípio:** programa armazenado na mesma memória que os dados.
 
 ---
 
-## Ciclo Fetch–Decode–Execute
+## 🔄 Ciclo Fetch – Decode – Execute
 
-1. **Fetch:** UC busca instrução na memória (endereço no PC)
-2. **Decode:** UC interpreta o opcode da instrução
-3. **Execute:** ULA executa operação, resultado vai para registrador
-4. **PC++:** contador de programa avança para próxima instrução
+| Etapa | O que acontece |
+|:-----:|---------------|
+| **Fetch** | UC busca instrução (endereço no PC) |
+| **Decode** | UC interpreta o opcode |
+| **Execute** | ULA executa; resultado → registrador |
+| **PC++** | Avança para próxima instrução |
 
-**Repete** bilhões de vezes por segundo (GHz = bilhões de ciclos/s).
-
----
-
-## Von Neumann Bottleneck
-
-> O gargalo entre CPU e memória limita o desempenho — **a CPU é mais rápida que o caminho até os dados.** (Backus, 1978)
-
-**Soluções:**
-
-- Cache (memória intermediária ultrarrápida)
-- Pipeline (execução paralela de fases)
-- Arquitetura Harvard (barramentos separados para dados e instruções)
+⚡ Repete **bilhões** de vezes/segundo (GHz)
 
 ---
 
-## Hierarquia de Memória
+## ⚠️ Von Neumann Bottleneck
+
+> CPU é mais rápida que o caminho até a memória. — Backus, 1978
+
+**Soluções modernas:**
+
+| Técnica | Como resolve |
+|---------|-------------|
+| 🗄️ Cache | Memória intermediária ultrarrápida |
+| ⛓️ Pipeline | Execução paralela de fases |
+| 🔀 Harvard | Barramentos separados dados/instruções |
+
+---
+
+## 📊 Hierarquia de Memória
 
 ```
-        Registradores  (~0.3ns, bytes)
-           Cache L1    (~1ns, 64KB)
-           Cache L2    (~4ns, 256KB)
-           Cache L3    (~10ns, 8-32MB)
-          RAM DDR5     (~80ns, 16-64GB)
-         SSD NVMe      (~25μs, 512GB-4TB)
-           HDD         (~5ms, 1-20TB)
+          ⚡ Registradores   ~0.3 ns     bytes
+          ⚡ Cache L1        ~1 ns       64 KB
+          ⚡ Cache L2/L3     ~4-10 ns    256 KB–32 MB
+          💾 RAM DDR5        ~80 ns      16–64 GB
+          💿 SSD NVMe        ~25 μs      512 GB–4 TB
+          📀 HDD             ~5 ms       1–20 TB
 ```
 
-**Regra:** sobe → mais rápido, menor, mais caro
-          desce → mais lento, maior, mais barato
+⬆️ *Mais rápido, menor, mais caro*
+⬇️ *Mais lento, maior, mais barato*
 
 ---
 
-## CISC vs RISC
+## ⚔️ CISC vs RISC
 
 | Aspecto | CISC | RISC |
 |---------|------|------|
 | Instruções | Complexas, variáveis | Simples, fixas |
-| Ciclos/instrução | Múltiplos | ~1 (pipeline) |
-| Exemplo | Intel x86, AMD64 | ARM, RISC-V, Apple M-series |
-| Onde domina | Desktops, servidores | Mobile, embarcados, Apple Silicon |
+| Ciclos/instr. | Múltiplos | ~1 (pipeline) |
+| Exemplo | Intel x86, AMD64 | ARM, RISC-V, Apple M |
+| Domina em | Desktops, servers | Mobile, Apple Silicon |
 
-**Apple M1/M2/M3:** RISC superando CISC em performance/watt.
+> 🍎 Apple M1/M2/M3: RISC superando CISC em **performance/watt**.
 
 ---
 
-## GPU e Processamento Paralelo
+## 🎮 CPU vs GPU
 
 | | CPU | GPU |
-|---|-----|-----|
-| Núcleos | 4–64 (potentes) | 1.000–16.000 (simples) |
-| Melhor para | Tarefas sequenciais complexas | Tarefas paralelas massivas |
-| Uso em IA | Pré-processamento | Treinamento de redes neurais |
+|:-:|:---:|:---:|
+| Núcleos | 4–64 potentes | 1k–16k simples |
+| Ideal para | Tarefas sequenciais | Paralelismo massivo |
+| Uso em IA | Pré-processamento | Treinamento de redes |
 
-**GPGPU:** usar GPU para computação geral (CUDA, OpenCL).
-Deep Learning não existiria sem GPUs.
-
----
-
-## Diagnóstico de Gargalos
-
-| Sintoma | Componente provável | Verificação |
-|---------|-------------------|------------|
-| Sistema lento ao abrir apps | RAM insuficiente ou HDD | Verificar uso de memória e tipo de disco |
-| Fan alta, throttling | CPU superaquecendo | Monitorar temperatura |
-| Jogo travando | GPU ou VRAM | Verificar FPS e uso de GPU |
-| Compilação lenta | CPU (poucos núcleos) | Monitorar uso de CPU |
+> Deep Learning **não existiria** sem GPUs.
 
 ---
 
-## Referências-chave
+## 📚 Referências
 
-- Tanenbaum, A. (2013). *Structured Computer Organization* (6ª ed.)
-- Patterson & Hennessy (2021). *Computer Organization and Design* (RISC-V)
-- Stallings, W. (2022). *Computer Organization and Architecture* (11ª ed.)
-- Backus, J. (1978). Can Programming Be Liberated from the Von Neumann Style?
+- Tanenbaum (2013). *Structured Computer Organization*
+- Patterson & Hennessy (2021). *Computer Org. and Design* — RISC-V
+- Backus (1978). *Can Programming Be Liberated…?*
 
----
-
-## Checkpoint
-
-**→ Checkpoint 02** (com módulo 04)
-Ciclo de instrução, hierarquia de memória, CISC vs RISC + conversões de base.
+**→ Checkpoint 02** · com módulo 04
