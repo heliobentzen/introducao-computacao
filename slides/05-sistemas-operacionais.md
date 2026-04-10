@@ -2,34 +2,52 @@
 marp: true
 theme: default
 paginate: true
+header: '![w:90](ifpe-logo.png)'
+footer: 'Introdução à Computação · IFPE'
 style: |
-  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
-  h1 { color: #ff6b6b; font-size: 2.2em; }
-  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
-  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
-  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
-  td { background: rgba(255,255,255,0.04); }
-  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
-  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
-  pre code { color: #e8e8f0; background: none; }
-  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
-  a { color: #00d4ff; } img { border-radius: 10px; }
-  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: #ffffff; color: #222; }
+  header { top: 16px; right: 24px; left: auto; }
+  header img { margin: 0; }
+  footer { color: #666; font-size: 0.6em; border-top: 2px solid #2f9e41; padding-top: 4px; }
+  h1 { color: #2f9e41; font-size: 2em; border-bottom: 3px solid #cd191e; padding-bottom: 6px; }
+  h2 { color: #2f9e41; font-size: 1.4em; }
+  strong { color: #cd191e; }
+  em { color: #2f9e41; font-style: normal; }
+  table { font-size: 0.72em; border-collapse: collapse; }
+  th { background: #2f9e41; color: #fff; padding: 6px 10px; }
+  td { border: 1px solid #ddd; padding: 5px 10px; background: #fafafa; }
+  code { background: #f0f0f0; color: #cd191e; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #f7f7f7 !important; border-radius: 8px; border: 1px solid #ddd; }
+  pre code { color: #333; background: none; }
+  blockquote { border-left: 4px solid #2f9e41; background: #f0faf0; padding: 8px 16px; border-radius: 0 8px 8px 0; color: #333; }
+  a { color: #2f9e41; }
+  section::after { color: #999; font-size: 0.7em; }
+  section.capa { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  section.capa h1 { border: none; font-size: 1.6em; }
+  section.capa h2 { margin-top: -10px; }
 ---
 
-<!-- _class: lead -->
+<!-- _class: capa -->
+<!-- _paginate: false -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+
+![w:220](ifpe-logo.png)
+
+# Introdução à Computação
+
+## Módulo 05 · Sistemas Operacionais Modernos
+
+**Prof. Hélio Bentzen**
+IFPE · Análise e Desenvolvimento de Sistemas
+
+---
 
 # 🐧 Sistemas Operacionais
 
-**Introdução à Computação · ADS**
-
-*A camada que faz o hardware servir ao software*
-
-![bg right:40% brightness:0.6](https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&h=400&fit=crop)
-
 ---
 
-## 🎯 O que é um SO?
+## O que é um SO?
 
 Interface entre **hardware** e **aplicações** — gerencia recursos de forma justa, segura e eficiente.
 
@@ -40,11 +58,11 @@ Interface entre **hardware** e **aplicações** — gerencia recursos de forma j
   └─ Hardware ────────────┘
 ```
 
-**Funções:** processos · memória · arquivos · I/O · segurança
+Funções: processos · memória · arquivos · I/O · segurança
 
 ---
 
-## 🧬 Tipos de Kernel
+## Tipos de Kernel
 
 | Tipo | Característica | Exemplo |
 |------|---------------|---------|
@@ -54,7 +72,7 @@ Interface entre **hardware** e **aplicações** — gerencia recursos de forma j
 
 ---
 
-## 🔄 Processos — Ciclo de Vida
+## Processos — Ciclo de Vida
 
 ```
  [Novo] → [Pronto] → [Executando] → [Terminado]
@@ -65,12 +83,12 @@ Interface entre **hardware** e **aplicações** — gerencia recursos de forma j
 | Estado | Significado |
 |--------|-----------|
 | 🟡 Pronto | Na fila, esperando CPU |
-| 🟢 Executando | Usando a CPU agora |
+| 🟢 Executando | Usando a CPU |
 | 🔴 Bloqueado | Esperando evento externo |
 
 ---
 
-## ⏱️ Escalonamento de CPU
+## Escalonamento de CPU
 
 | Algoritmo | Preemptivo? | Problema |
 |-----------|:----------:|---------|
@@ -83,7 +101,7 @@ Interface entre **hardware** e **aplicações** — gerencia recursos de forma j
 
 ---
 
-## 📊 Round Robin — Exemplo
+## Round Robin — Exemplo
 
 P1=8 · P2=4 · P3=2 · **quantum=4**
 
@@ -100,7 +118,7 @@ Gantt: │ P1(4) │ P2(4) │ P3(2) │ P1(4) │
 
 ---
 
-## 📄 Paginação de Memória
+## Paginação de Memória
 
 Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
@@ -114,7 +132,7 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 ---
 
-## 🔃 Substituição de Página
+## Substituição de Página
 
 | Algoritmo | Regra | Ótimo? |
 |-----------|-------|:------:|
@@ -122,11 +140,11 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 | **LRU** | Menos recentemente usada | ≈ ✅ |
 | **Ótimo** | Usada mais tarde no futuro | 🏆 teórico |
 
-> 🐛 **Anomalia de Bélády:** com FIFO, mais frames pode causar *mais* page faults!
+> **Anomalia de Bélády:** com FIFO, mais frames pode causar *mais* page faults!
 
 ---
 
-## 📂 Sistemas de Arquivos
+## Sistemas de Arquivos
 
 | FS | SO | Journaling | Máx. arquivo |
 |----|:--:|:----------:|:------------:|
@@ -137,7 +155,7 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 ---
 
-## 💻 Terminal — Comandos Essenciais
+## Terminal — Comandos Essenciais
 
 | Comando | Ação |
 |---------|------|
@@ -149,7 +167,7 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 
 ---
 
-## 🔐 Permissões Unix → Octal
+## Permissões Unix → Octal
 
 ```
   rwx  r-x  r--  =  754₈
@@ -159,11 +177,11 @@ Memória dividida em **páginas** de tamanho fixo (ex: 4 KB).
 |:----------:|:-----------:|:------------:|
 | 4+2+1 = **7** | 4+0+1 = **5** | 4+0+0 = **4** |
 
-> 🔗 **Módulo 04 em ação:** permissões usam octal diretamente!
+> *Módulo 04 em ação:* permissões usam octal diretamente!
 
 ---
 
-## 📚 Referências
+## Referências
 
 - Tanenbaum (2015). *Modern Operating Systems*, 4ª ed.
 - Silberschatz et al. (2018). *OS Concepts*, 10ª ed.

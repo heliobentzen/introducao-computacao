@@ -2,48 +2,66 @@
 marp: true
 theme: default
 paginate: true
+header: '![w:90](ifpe-logo.png)'
+footer: 'Introdução à Computação · IFPE'
 style: |
-  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
-  h1 { color: #ff6b6b; font-size: 2.2em; }
-  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
-  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
-  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
-  td { background: rgba(255,255,255,0.04); }
-  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
-  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
-  pre code { color: #e8e8f0; background: none; }
-  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
-  a { color: #00d4ff; } img { border-radius: 10px; }
-  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: #ffffff; color: #222; }
+  header { top: 16px; right: 24px; left: auto; }
+  header img { margin: 0; }
+  footer { color: #666; font-size: 0.6em; border-top: 2px solid #2f9e41; padding-top: 4px; }
+  h1 { color: #2f9e41; font-size: 2em; border-bottom: 3px solid #cd191e; padding-bottom: 6px; }
+  h2 { color: #2f9e41; font-size: 1.4em; }
+  strong { color: #cd191e; }
+  em { color: #2f9e41; font-style: normal; }
+  table { font-size: 0.72em; border-collapse: collapse; }
+  th { background: #2f9e41; color: #fff; padding: 6px 10px; }
+  td { border: 1px solid #ddd; padding: 5px 10px; background: #fafafa; }
+  code { background: #f0f0f0; color: #cd191e; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #f7f7f7 !important; border-radius: 8px; border: 1px solid #ddd; }
+  pre code { color: #333; background: none; }
+  blockquote { border-left: 4px solid #2f9e41; background: #f0faf0; padding: 8px 16px; border-radius: 0 8px 8px 0; color: #333; }
+  a { color: #2f9e41; }
+  section::after { color: #999; font-size: 0.7em; }
+  section.capa { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  section.capa h1 { border: none; font-size: 1.6em; }
+  section.capa h2 { margin-top: -10px; }
 ---
 
-<!-- _class: lead -->
+<!-- _class: capa -->
+<!-- _paginate: false -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+
+![w:220](ifpe-logo.png)
+
+# Introdução à Computação
+
+## Módulo 06 · Cloud Computing
+
+**Prof. Hélio Bentzen**
+IFPE · Análise e Desenvolvimento de Sistemas
+
+---
 
 # ☁️ Cloud Computing
 
-**Introdução à Computação · ADS**
-
-*Computação sob demanda: da sala do servidor ao mundo*
-
-![bg right:40% brightness:0.5](https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop)
-
 ---
 
-## 📖 Definição NIST
+## Definição NIST
 
 > Acesso **sob demanda** a um pool compartilhado de recursos computacionais. — Mell & Grance, 2011
 
 | # | Característica |
 |:-:|---------------|
-| 1️⃣ | Self-service sob demanda |
-| 2️⃣ | Acesso amplo pela rede |
-| 3️⃣ | Pool de recursos compartilhado |
-| 4️⃣ | Elasticidade rápida |
-| 5️⃣ | Pay-as-you-go |
+| 1 | Self-service sob demanda |
+| 2 | Acesso amplo pela rede |
+| 3 | Pool de recursos compartilhado |
+| 4 | Elasticidade rápida |
+| 5 | Pay-as-you-go |
 
 ---
 
-## 🧱 Modelos de Serviço
+## Modelos de Serviço
 
 | Modelo | Você gerencia | Exemplo |
 |--------|:------------:|---------|
@@ -56,31 +74,31 @@ style: |
 
 ---
 
-## 🌐 Modelos de Implantação
+## Modelos de Implantação
 
 | Modelo | Quem usa | Exemplo |
 |--------|---------|---------|
 | ☁️ **Pública** | Qualquer org. | AWS, Azure, GCP |
 | 🏢 **Privada** | Apenas uma org. | OpenStack |
 | 🔀 **Híbrida** | Pública + Privada | Maioria enterprise |
-| 🌈 **Multi-cloud** | Vários provedores | Netflix |
+| 🌐 **Multi-cloud** | Vários provedores | Netflix |
 
 ---
 
-## 🛡️ Responsabilidade Compartilhada
+## Responsabilidade Compartilhada
 
 | Camada | IaaS | PaaS | SaaS |
 |--------|:----:|:----:|:----:|
 | Hardware / Rede | ☁️ | ☁️ | ☁️ |
-| SO / Runtime | **🔑 Você** | ☁️ | ☁️ |
-| Aplicação | **🔑 Você** | **🔑 Você** | ☁️ |
-| Dados + Identidade | **🔑 Você** | **🔑 Você** | **🔑 Você** |
+| SO / Runtime | **Você** | ☁️ | ☁️ |
+| Aplicação | **Você** | **Você** | ☁️ |
+| Dados + Identidade | **Você** | **Você** | **Você** |
 
-> 🔒 Seus dados e identidades são **sempre** sua responsabilidade.
+> Seus dados e identidades são **sempre** sua responsabilidade.
 
 ---
 
-## 📈 SLA — Disponibilidade
+## SLA — Disponibilidade
 
 | SLA | Downtime / ano | Downtime / mês |
 |:---:|:--------------:|:--------------:|
@@ -89,12 +107,12 @@ style: |
 | 99.99% | 52.6 min | 4.4 min |
 | 99.999% | 5.26 min | 26.3 s |
 
-**2 zonas 99.95% cada:**
+2 zonas 99.95% cada:
 $$A = 1 - (1 - 0{,}9995)^2 = 99{,}9999\%$$
 
 ---
 
-## 🔺 Teorema CAP
+## Teorema CAP
 
 > Em sistema distribuído, escolha **2 de 3** — Brewer, 2000
 
@@ -104,11 +122,11 @@ $$A = 1 - (1 - 0{,}9995)^2 = 99{,}9999\%$$
 | **A** | Disponibilidade — sempre responde |
 | **P** | Tolerância a partição — funciona com falha de rede |
 
-🗃️ Bancos NoSQL: geralmente sacrificam **C** para ganhar **A + P**.
+Bancos NoSQL: geralmente sacrificam **C** para ganhar A + P.
 
 ---
 
-## 💰 FinOps — Custo na Nuvem
+## FinOps — Custo na Nuvem
 
 | Modelo de preço | Economia | Risco |
 |----------------|:--------:|-------|
@@ -117,23 +135,21 @@ $$A = 1 - (1 - 0{,}9995)^2 = 99{,}9999\%$$
 | Reserved 3 anos | ~55% | Longo prazo |
 | Spot | ~70-90% | Interrupção |
 
-> ⚠️ Cloud *parece* barata, mas sem controle os custos **explodem**.
+> Cloud *parece* barata, mas sem controle os custos **explodem**.
 
 ---
 
-## 🏆 Big Three
+## Big Three
 
 | | AWS | Azure | GCP |
 |:-:|:---:|:-----:|:---:|
-| 📊 Share | ~31% | ~25% | ~11% |
-| 💪 Forte | Amplitude | Enterprise | Data / ML |
-| 🆓 Free | 12 meses | US$ 200 (estudante) | US$ 300 |
-
-![bg right:25% opacity:0.15](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&fit=crop)
+| Share | ~31% | ~25% | ~11% |
+| Forte | Amplitude | Enterprise | Data / ML |
+| Free | 12 meses | US$ 200 (estudante) | US$ 300 |
 
 ---
 
-## 📚 Referências
+## Referências
 
 - Mell & Grance (2011). *NIST Definition of Cloud Computing*
 - Brewer (2000). *Towards Robust Distributed Systems*

@@ -2,48 +2,66 @@
 marp: true
 theme: default
 paginate: true
+header: '![w:90](ifpe-logo.png)'
+footer: 'Introdução à Computação · IFPE'
 style: |
-  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
-  h1 { color: #ff6b6b; font-size: 2.2em; }
-  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
-  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
-  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
-  td { background: rgba(255,255,255,0.04); }
-  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
-  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
-  pre code { color: #e8e8f0; background: none; }
-  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
-  a { color: #00d4ff; } img { border-radius: 10px; }
-  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: #ffffff; color: #222; }
+  header { top: 16px; right: 24px; left: auto; }
+  header img { margin: 0; }
+  footer { color: #666; font-size: 0.6em; border-top: 2px solid #2f9e41; padding-top: 4px; }
+  h1 { color: #2f9e41; font-size: 2em; border-bottom: 3px solid #cd191e; padding-bottom: 6px; }
+  h2 { color: #2f9e41; font-size: 1.4em; }
+  strong { color: #cd191e; }
+  em { color: #2f9e41; font-style: normal; }
+  table { font-size: 0.72em; border-collapse: collapse; }
+  th { background: #2f9e41; color: #fff; padding: 6px 10px; }
+  td { border: 1px solid #ddd; padding: 5px 10px; background: #fafafa; }
+  code { background: #f0f0f0; color: #cd191e; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #f7f7f7 !important; border-radius: 8px; border: 1px solid #ddd; }
+  pre code { color: #333; background: none; }
+  blockquote { border-left: 4px solid #2f9e41; background: #f0faf0; padding: 8px 16px; border-radius: 0 8px 8px 0; color: #333; }
+  a { color: #2f9e41; }
+  section::after { color: #999; font-size: 0.7em; }
+  section.capa { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  section.capa h1 { border: none; font-size: 1.6em; }
+  section.capa h2 { margin-top: -10px; }
 ---
 
-<!-- _class: lead -->
+<!-- _class: capa -->
+<!-- _paginate: false -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+
+![w:220](ifpe-logo.png)
+
+# Introdução à Computação
+
+## Módulo 02 · Lógica, Algoritmos e Controle de Fluxo
+
+**Prof. Hélio Bentzen**
+IFPE · Análise e Desenvolvimento de Sistemas
+
+---
 
 # ⚙️ Lógica, Algoritmos e Fluxo
 
-**Introdução à Computação · ADS**
-
-*Estruturar · Decidir · Repetir · Testar*
-
-![bg right:40% brightness:0.7](https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=600&h=400&fit=crop)
-
 ---
 
-## 🧱 Teorema de Böhm–Jacopini (1966)
+## Teorema de Böhm–Jacopini (1966)
 
 Todo algoritmo computável usa **apenas 3 estruturas**:
 
 | # | Estrutura | Significado |
 |:-:|-----------|------------|
-| 1️⃣ | **Sequência** | Passos em ordem |
-| 2️⃣ | **Seleção** | Decisão (SE / SENÃO) |
-| 3️⃣ | **Iteração** | Repetição (ENQUANTO / PARA) |
+| 1 | **Sequência** | Passos em ordem |
+| 2 | **Seleção** | Decisão (SE / SENÃO) |
+| 3 | **Iteração** | Repetição (ENQUANTO / PARA) |
 
 > Sem GOTO. Toda lógica se resolve com essas três.
 
 ---
 
-## 🔣 Lógica Proposicional
+## Lógica Proposicional
 
 | Operador | Símbolo | Exemplo |
 |----------|:-------:|---------|
@@ -60,7 +78,7 @@ Todo algoritmo computável usa **apenas 3 estruturas**:
 
 ---
 
-## 🔀 Estrutura Condicional
+## Estrutura Condicional
 
 ```
 SE nota >= 7.0 ENTÃO
@@ -72,14 +90,14 @@ SENÃO
 FIM SE
 ```
 
-💡 **Boas práticas:**
+Boas práticas:
 
-- Condição mais restritiva primeiro
+- Condição mais restritiva **primeiro**
 - Evitar aninhamento > 3 níveis
 
 ---
 
-## 🔁 Laços de Repetição
+## Laços de Repetição
 
 | Tipo | Quando usar | Teste |
 |------|------------|:-----:|
@@ -95,7 +113,7 @@ FIM PARA
 
 ---
 
-## 📈 Exemplo Evolutivo — Notas
+## Exemplo Evolutivo — Notas
 
 **v1 — Sequência:**
 
@@ -118,7 +136,7 @@ PARA aluno DE 1 ATÉ 40 FAÇA …
 
 ---
 
-## 📐 Fluxograma — ISO 5807
+## Fluxograma — ISO 5807
 
 | Símbolo | Significado |
 |:-------:|-----------|
@@ -129,11 +147,9 @@ PARA aluno DE 1 ATÉ 40 FAÇA …
 
 > Fluxograma deve ser legível **sem** o pseudocódigo.
 
-![bg right:30% opacity:0.15](https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&fit=crop)
-
 ---
 
-## 🔎 Trace Table — Depuração Manual
+## Trace Table — Depuração Manual
 
 Simula execução passo a passo — encontra bugs **antes** de rodar.
 
@@ -144,11 +160,11 @@ Simula execução passo a passo — encontra bugs **antes** de rodar.
 | 2 | 2 | 3 | ✅ |
 | 3 | 3 | 6 | ❌ sai |
 
-**Resultado:** `soma = 6`
+Resultado: `soma = 6`
 
 ---
 
-## 📚 Referências
+## Referências
 
 - Böhm & Jacopini (1966). *Flow diagrams, Turing machines*
 - Cormen et al. (2022). *Introduction to Algorithms*, 4ª ed.

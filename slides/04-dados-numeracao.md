@@ -2,34 +2,52 @@
 marp: true
 theme: default
 paginate: true
+header: '![w:90](ifpe-logo.png)'
+footer: 'Introdução à Computação · IFPE'
 style: |
-  section { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg,#0c0c1d,#1a1a3e); color: #e8e8f0; }
-  h1 { color: #ff6b6b; font-size: 2.2em; }
-  h2 { background: linear-gradient(90deg,#e94560,#c23152); color: #fff; padding: 6px 20px; border-radius: 8px; display: inline-block; }
-  strong { color: #00d4ff; } em { color: #ffd166; font-style: normal; }
-  table { font-size: 0.72em; } th { background: rgba(233,69,96,0.85); color: #fff; }
-  td { background: rgba(255,255,255,0.04); }
-  code { background: rgba(0,212,255,0.12); color: #ff6b6b; padding: 2px 6px; border-radius: 4px; }
-  pre { background: #12122a !important; border-radius: 10px; border: 1px solid rgba(233,69,96,0.3); }
-  pre code { color: #e8e8f0; background: none; }
-  blockquote { border-left: 4px solid #e94560; background: rgba(233,69,96,0.08); padding: 8px 16px; border-radius: 0 8px 8px 0; }
-  a { color: #00d4ff; } img { border-radius: 10px; }
-  section::after { color: rgba(255,255,255,0.3); font-size: 0.7em; }
+  section { font-family: 'Segoe UI', system-ui, sans-serif; background: #ffffff; color: #222; }
+  header { top: 16px; right: 24px; left: auto; }
+  header img { margin: 0; }
+  footer { color: #666; font-size: 0.6em; border-top: 2px solid #2f9e41; padding-top: 4px; }
+  h1 { color: #2f9e41; font-size: 2em; border-bottom: 3px solid #cd191e; padding-bottom: 6px; }
+  h2 { color: #2f9e41; font-size: 1.4em; }
+  strong { color: #cd191e; }
+  em { color: #2f9e41; font-style: normal; }
+  table { font-size: 0.72em; border-collapse: collapse; }
+  th { background: #2f9e41; color: #fff; padding: 6px 10px; }
+  td { border: 1px solid #ddd; padding: 5px 10px; background: #fafafa; }
+  code { background: #f0f0f0; color: #cd191e; padding: 2px 6px; border-radius: 4px; }
+  pre { background: #f7f7f7 !important; border-radius: 8px; border: 1px solid #ddd; }
+  pre code { color: #333; background: none; }
+  blockquote { border-left: 4px solid #2f9e41; background: #f0faf0; padding: 8px 16px; border-radius: 0 8px 8px 0; color: #333; }
+  a { color: #2f9e41; }
+  section::after { color: #999; font-size: 0.7em; }
+  section.capa { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  section.capa h1 { border: none; font-size: 1.6em; }
+  section.capa h2 { margin-top: -10px; }
 ---
 
-<!-- _class: lead -->
+<!-- _class: capa -->
+<!-- _paginate: false -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+
+![w:220](ifpe-logo.png)
+
+# Introdução à Computação
+
+## Módulo 04 · Representação de Dados e Sistemas de Numeração
+
+**Prof. Hélio Bentzen**
+IFPE · Análise e Desenvolvimento de Sistemas
+
+---
 
 # 🔢 Dados e Sistemas de Numeração
 
-**Introdução à Computação · ADS**
-
-*Por que o computador só entende 0 e 1 — e como isso vira tudo*
-
-![bg right:40% brightness:0.6](https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop)
-
 ---
 
-## 💡 Por que Binário?
+## Por que Binário?
 
 **Shannon (1948):** dois estados (0/1) é o mais robusto contra ruído elétrico.
 
@@ -43,7 +61,7 @@ style: |
 
 ---
 
-## 🔄 Sistemas de Numeração
+## Sistemas de Numeração
 
 $$N = \sum_{i} d_i \times b^i$$
 
@@ -56,7 +74,7 @@ $$N = \sum_{i} d_i \times b^i$$
 
 ---
 
-## ➗ Decimal → Binário
+## Decimal → Binário
 
 Divisões sucessivas por 2, **restos de baixo p/ cima**:
 
@@ -69,11 +87,11 @@ Divisões sucessivas por 2, **restos de baixo p/ cima**:
  1 ÷ 2 =  0 r 1     │
 ```
 
-**45₁₀ = `101101`₂**
+Resultado: 45₁₀ = **`101101`₂**
 
 ---
 
-## 🔗 Binário ↔ Hexadecimal
+## Binário ↔ Hexadecimal
 
 Agrupar em **blocos de 4 bits** (direita → esquerda):
 
@@ -92,11 +110,11 @@ Agrupar em **blocos de 4 bits** (direita → esquerda):
 
 ---
 
-## ➖ Complemento de 2
+## Complemento de 2
 
 Representação padrão de **inteiros com sinal**.
 
-**Representar −45 em 8 bits:**
+Representar −45 em 8 bits:
 
 ```
  +45 =  00101101
@@ -108,9 +126,9 @@ Representação padrão de **inteiros com sinal**.
 
 ---
 
-## 🎯 IEEE 754 — Ponto Flutuante
+## IEEE 754 — Ponto Flutuante
 
-**32 bits (precisão simples):**
+32 bits (precisão simples):
 
 | Sinal (1) | Expoente (8) | Mantissa (23) |
 |:---------:|:-----------:|:------------:|
@@ -122,19 +140,17 @@ Representação padrão de **inteiros com sinal**.
 
 ---
 
-## 💥 Caso Real — Ariane 5 (1996)
+## Caso Real — Ariane 5 (1996)
 
 - 🚀 Foguete de **US$ 370 mi** explodiu em 37 segundos
-- 🐛 **Causa:** float 64-bit → int 16-bit = *overflow*
+- 🐛 Causa: float 64-bit → int 16-bit = **overflow**
 - 📏 Velocidade excedeu 32.767 (máx de int16)
 
 > Representação de dados não é detalhe — é **infraestrutura**.
 
-![bg right:30% opacity:0.2](https://images.unsplash.com/photo-1457364559154-aa2644600ebb?w=400&fit=crop)
-
 ---
 
-## 🔤 Codificação de Texto
+## Codificação de Texto
 
 | Padrão | Bits | Cobertura |
 |--------|:----:|----------|
@@ -146,19 +162,19 @@ Representação padrão de **inteiros com sinal**.
 
 ---
 
-## 🖼️ Imagem e Áudio
+## Imagem e Áudio
 
 **Imagem (bitmap):**
 $$\text{Tamanho} = W \times H \times \text{profundidade}$$
-📸 1920×1080 × 3 B (RGB) ≈ **5.9 MB** / frame
+1920×1080 × 3 B (RGB) ≈ **5.9 MB** / frame
 
 **Áudio (PCM):**
 $$\text{Tamanho} = \text{taxa} \times \text{bits} \times \text{canais} \times \text{seg}$$
-🎵 44.1 kHz × 16 bit × 2 ch × 60 s ≈ **10 MB** / min
+44.1 kHz × 16 bit × 2 ch × 60 s ≈ **10 MB** / min
 
 ---
 
-## 📚 Referências
+## Referências
 
 - Shannon (1948). *A Mathematical Theory of Communication*
 - Goldberg (1991). *What Every CS Should Know About FP Arithmetic*
